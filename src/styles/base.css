@@ -1,0 +1,12 @@
+@layer base {
+    /* reset styles, font-family, etc. */
+
+    body {
+        font-size: 14px;
+        font-family: "Inter", "Roboto", sans-serif;
+    }
+    svg {
+        width: 16px;
+        height: 20px;
+    }
+}
