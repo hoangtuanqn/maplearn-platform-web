@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 // Banner có thể bấm vô được hay không
@@ -16,7 +16,15 @@ const bannerImages = [
 const Banner = () => {
     return (
         <div className="mt-4 overflow-hidden rounded-xl xl:mt-6">
-            <Swiper pagination={true} modules={[Pagination]} className="mySwiper" loop={true}>
+            <Swiper
+                pagination={true}
+                autoplay={{
+                    delay: 3000, // 3 giây
+                    disableOnInteraction: false, // Không dừng khi người dùng vuốt slide
+                }}
+                modules={[Pagination, Autoplay]}
+                loop={true}
+            >
                 {bannerImages.map(({ url, image }) => (
                     <SwiperSlide key={image + url}>
                         <a
