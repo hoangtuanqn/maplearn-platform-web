@@ -1,2 +1,3 @@
 - Tooltip: https://react-tooltip.com/docs/getting-started
-- Library icon: https://lucide.dev/icons/
+- Library Lucide Icons: https://lucide.dev/icons/
+- Swipper: https://swiperjs.com/react
