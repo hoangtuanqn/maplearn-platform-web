@@ -8,8 +8,9 @@ const App = () => {
     return (
         <>
             <Header />
-            <section className="max-w-8xl mx-auto mt-[56px] p-5">
-                <div className="flex gap-14">
+            {/* max-w-8xl mx-auto mt-[56px] p-5 */}
+            <section className="max-w-8xl mx-auto md:mt-[56px] md:py-5 px-1">
+                <div className="flex gap-2 max-md:pb-18">
                     <SidebarLeft />
                     <Home />
                     <SidebarRight />

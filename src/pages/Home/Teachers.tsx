@@ -1,7 +1,8 @@
 import HeaderSection from "./HeaderSection";
 const Teachers = () => {
+    //mt-6 rounded-xl
     return (
-        <div className="mt-6 rounded-xl bg-white px-4 py-6 shadow-sm">
+        <div className="mt-3.5 bg-white px-4 py-6 shadow-sm md:rounded-xl xl:mt-6">
             <HeaderSection title="Giáo viên MapLearn" />
             <div className="scrollbar flex gap-4 py-4">
                 {[...Array(8)].map(() => (

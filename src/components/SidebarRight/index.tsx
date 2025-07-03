@@ -3,9 +3,9 @@ import ExamCountdown from "./ExamCountdown";
 import CourseActive from "./CourseActive";
 const SidebarRight = () => {
     return (
-        <div className="w-[24%]">
+        <div className="hidden w-[22%] 2xl:block">
             <div
-                className="scrollbar sticky w-[100%] rounded-md pt-5"
+                className="scrollbar sticky w-[100%] rounded-md"
                 // className="sticky w-[100%] overflow-hidden rounded-md pt-5"
                 style={{ top: "76px", maxHeight: "calc(100vh - 76px)" }}
             >

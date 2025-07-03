@@ -1,1 +1,2 @@
 - Tooltip: https://react-tooltip.com/docs/getting-started
+- Library icon: https://lucide.dev/icons/
