@@ -1,0 +1,21 @@
+import News from "./News";
+import ExamCountdown from "./ExamCountdown";
+import CourseActive from "./CourseActive";
+const SidebarRight = () => {
+    return (
+        <div className="w-[24%]">
+            <div
+                className="scrollbar sticky w-[100%] rounded-md pt-5"
+                // className="sticky w-[100%] overflow-hidden rounded-md pt-5"
+                style={{ top: "76px", maxHeight: "calc(100vh - 76px)" }}
+            >
+                <div className="flex flex-col gap-5"></div>
+                <ExamCountdown />
+                <CourseActive />
+                <News />
+            </div>
+        </div>
+    );
+};
+
+export default SidebarRight;
