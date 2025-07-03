@@ -1,3 +1,5 @@
 @theme {
     --container-8xl: 100rem;
+    --color-primary: var(--primary);
+    --color-secondary-typo: var(--secondary-typo);
 }
