@@ -1,3 +1,4 @@
 - Tooltip: https://react-tooltip.com/docs/getting-started
 - Library Lucide Icons: https://lucide.dev/icons/
 - Swipper: https://swiperjs.com/react
+- Library Animation Reloading: https://react-loading-indicators.netlify.app/

@@ -1,4 +1,4 @@
-import { ItemLinkType } from "~/components/Header/Laptop/HeaderLink";
+import { ItemLinkType } from "../../Header/Laptop/HeaderLink";
 
 const FooterMobileLink = ({
     label,
