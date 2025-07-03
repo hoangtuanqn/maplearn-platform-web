@@ -1,7 +1,7 @@
-const ExamCountdown = () => {
+const ExamCountdown = ({ className = "" }: { className?: string }) => {
     return (
         <a
-            className="relative block overflow-hidden rounded-lg border-2 border-[#459F52] bg-[#BFE7C3] p-12"
+            className={`relative block overflow-hidden rounded-lg border-2 border-[#459F52] bg-[#BFE7C3] p-12 ${className}`}
             href="/dem-nguoc-ky-thi-thpt"
         >
             <img
@@ -25,7 +25,7 @@ const ExamCountdown = () => {
                 src="/assets/images/exam-wishes/home-count-bl.png"
             />
             <div className="relative z-10 flex flex-col items-center gap-5 text-center">
-                <div className="text-2xl font-bold text-[#124E1C]">
+                <div className="text-xl font-bold text-[#124E1C]">
                     Đếm ngược ngày thi
                     <br />
                     THPT QG 2025

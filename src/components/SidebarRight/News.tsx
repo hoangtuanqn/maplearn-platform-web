@@ -3,7 +3,7 @@ import NewLink from "./NewLink";
 export default function News() {
     return (
         <>
-            <div className="mt-6 flex items-center justify-between">
+            <div className="mt-6 mb-2 flex items-center justify-between">
                 <p className="text-primary text-base font-medium">Tin tức</p>
                 <a className="cursor-pointer" href="/tin-tuc">
                     <p className="t1-flex-center justify-between gap-1 text-gray-500 italic">

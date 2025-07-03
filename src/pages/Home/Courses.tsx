@@ -5,9 +5,9 @@ const Courses = () => {
     return (
         <>
             {[...Array(5)].map(() => (
-                <div className="mt-6 rounded-xl bg-white px-4 py-6 shadow-sm">
+                <div className="mt-3.5 bg-white px-4 py-6 shadow-sm md:rounded-xl xl:mt-6">
                     <HeaderSection title="Khóa học HOT" />
-                    <div className="mt-4 grid grid-cols-4 gap-x-4 gap-y-6">
+                    <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 xl:grid-cols-4">
                         {[...Array(5)].map(() => (
                             <a href="#" className="text-secondary-typo block h-full w-full rounded-xl">
                                 <img
@@ -20,7 +20,7 @@ const Courses = () => {
                                 </span>
                                 <div className="mt-1 flex items-center gap-1 text-xs font-medium">
                                     <User style={{ fill: "currentColor" }} />
-                                    <span className="line-clamp-2">Thầy Phạm Hoàng Tuấn</span>
+                                    <span className="line-clamp-2">Thầy Hoàng Tuấn</span>
                                 </div>
                             </a>
                         ))}

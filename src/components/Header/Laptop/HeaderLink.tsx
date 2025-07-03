@@ -1,19 +1,21 @@
 import { ElementType } from "react";
-export type HeaderLinkType = {
+export type ItemLinkType = {
     icon: ElementType;
     label: string;
     href: string;
+    iconColor?: string;
+    isActive?: boolean;
 };
-const HeaderLink = ({ label, icon: Icon, href }: HeaderLinkType) => {
+const HeaderLink = ({ label, icon: Icon, href, isActive = false }: ItemLinkType) => {
     return (
         <a className="cursor-pointer" href={href}>
             <div className="h-max w-max">
                 <div
-                    className="view_tooltip flex items-center px-6 duration-200 hover:scale-110"
+                    className="view_tooltip flex items-center duration-200 hover:scale-110 md:px-4 lg:px-6"
                     data-tooltip-content={label}
                     style={{ height: "56px" }}
                 >
-                    <Icon />
+                    <Icon isActive={isActive} />
                 </div>
             </div>
         </a>
