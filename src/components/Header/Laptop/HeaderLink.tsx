@@ -4,8 +4,9 @@ export type ItemLinkType = {
     label: string;
     href: string;
     iconColor?: string;
+    isActive?: boolean;
 };
-const HeaderLink = ({ label, icon: Icon, href }: ItemLinkType) => {
+const HeaderLink = ({ label, icon: Icon, href, isActive = false }: ItemLinkType) => {
     return (
         <a className="cursor-pointer" href={href}>
             <div className="h-max w-max">
@@ -14,7 +15,7 @@ const HeaderLink = ({ label, icon: Icon, href }: ItemLinkType) => {
                     data-tooltip-content={label}
                     style={{ height: "56px" }}
                 >
-                    <Icon />
+                    <Icon isActive={isActive} />
                 </div>
             </div>
         </a>

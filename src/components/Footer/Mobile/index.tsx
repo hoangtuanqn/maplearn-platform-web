@@ -9,11 +9,13 @@ const footerLinks = [
         label: "Trang chủ",
         icon: HomeIcon,
         href: "/",
+        isActive: true,
     },
     {
         label: "Khóa học",
         icon: GraduationIcon,
         href: "/khoa-hoc",
+        isActive: false,
     },
     {
         label: "Đấu trường",
@@ -24,25 +26,21 @@ const footerLinks = [
         label: "Thi online",
         icon: NewsIcon,
         href: "/thi-online",
+        isActive: false,
     },
     {
         label: "Đăng nhập",
         icon: EntertainmentIcon,
         href: "/ca-nhan",
+        isActive: false,
     },
 ];
 const FooterMobile = () => {
     return (
         <div className="fixed right-0 bottom-0 left-0 z-20 h-16 w-full bg-white py-2 shadow-2xs md:hidden">
             <ul className="flex h-full list-none flex-row gap-1 px-0.5">
-                {footerLinks.map(({ label, icon, href }) => (
-                    <FooterMobileLink
-                        key={href + label}
-                        label={label}
-                        icon={icon}
-                        href={href}
-                        iconColor="var(--primary-light)"
-                    />
+                {footerLinks.map((link) => (
+                    <FooterMobileLink key={link.href + link.label} {...link} iconColor="" />
                 ))}
             </ul>
         </div>

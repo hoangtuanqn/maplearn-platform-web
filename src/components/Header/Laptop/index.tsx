@@ -5,7 +5,37 @@ import GraduationIcon from "~/components/icons/GraduationIcon";
 import DocumentIcon from "~/components/icons/DocumentIcon";
 import NewsIcon from "~/components/icons/NewsIcon";
 import EntertainmentIcon from "~/components/icons/EntertainmentIcon";
-
+const headerLinks = [
+    {
+        label: "Trang chủ",
+        icon: HomeIcon,
+        href: "/",
+        isActive: true,
+    },
+    {
+        label: "Khóa học",
+        icon: GraduationIcon,
+        href: "/khoa-hoc",
+    },
+    {
+        label: "Thi thử",
+        icon: DocumentIcon,
+        href: "/thi-online",
+        isActive: false,
+    },
+    {
+        label: "Tin tức",
+        icon: NewsIcon,
+        href: "/tin-tuc",
+        isActive: false,
+    },
+    {
+        label: "Tài liệu",
+        icon: EntertainmentIcon,
+        href: "/tai-lieu",
+        isActive: false,
+    },
+];
 const HeaderLaptop = () => {
     return (
         <header className="relative z-30 hidden w-full md:block">
@@ -46,11 +76,9 @@ const HeaderLaptop = () => {
                                 <div className="relative">
                                     <div data-el="portal-host" id="navigation" className="relative">
                                         <div className="mx-auto flex items-center">
-                                            <HeaderLink label="Trang chủ" icon={HomeIcon} href="/" />
-                                            <HeaderLink label="Khóa học" icon={GraduationIcon} href="/khoa-hoc" />
-                                            <HeaderLink label="Thi thử" icon={DocumentIcon} href="/thi-online" />
-                                            <HeaderLink label="Tin tức" icon={NewsIcon} href="/tin-tuc" />
-                                            <HeaderLink label="Tài liệu" icon={EntertainmentIcon} href="/tai-lieu" />
+                                            {headerLinks.map((link) => (
+                                                <HeaderLink {...link} />
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
