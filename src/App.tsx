@@ -1,23 +1,17 @@
-import Header from "~/components/Header";
-import Home from "~/pages/Home";
-import SidebarLeft from "~/components/SidebarLeft";
-import SidebarRight from "~/components/SidebarRight";
-import Footer from "~/components/Footer";
-
+import { Suspense } from "react";
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import { routes } from "~/router";
+import Loading from "./components/Loading";
+function AppRouter() {
+    return useRoutes(routes);
+}
 const App = () => {
     return (
-        <>
-            <Header />
-            {/* max-w-8xl mx-auto mt-[56px] p-5 */}
-            <section className="max-w-8xl mx-auto md:mt-[56px] md:py-5 px-1">
-                <div className="flex gap-2 max-md:pb-18">
-                    <SidebarLeft />
-                    <Home />
-                    <SidebarRight />
-                </div>
-            </section>
-            <Footer />
-        </>
+        <BrowserRouter>
+            <Suspense fallback={<Loading />}>
+                <AppRouter />
+            </Suspense>
+        </BrowserRouter>
     );
 };
 

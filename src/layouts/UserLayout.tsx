@@ -1,0 +1,19 @@
+import { Outlet } from "react-router-dom";
+import Footer from "~/features/user/components/Footer";
+import Header from "~/features/user/components/Header";
+
+const UserLayout = () => {
+    return (
+        <>
+            <Header />
+            <section className="max-w-8xl mx-auto md:mt-[56px] md:py-5 lg:px-4">
+                <div className="flex gap-2 max-md:pb-18">
+                    <Outlet />
+                </div>
+            </section>
+            <Footer />
+        </>
+    );
+};
+
+export default UserLayout;

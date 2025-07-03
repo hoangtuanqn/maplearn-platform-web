@@ -1,4 +1,4 @@
-import { SidebarType } from "~/types/menu.type";
+import { SidebarType } from "~/features/user/types/menu.type";
 
 export const MenuItemLink = ({ title, image, url, className }: SidebarType) => {
     return (

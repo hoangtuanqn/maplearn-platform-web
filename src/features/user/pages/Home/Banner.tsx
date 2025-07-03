@@ -12,6 +12,10 @@ const bannerImages = [
         url: "https://www.facebook.com/phamhoangtuanqn/",
         image: "https://mapstudy.sgp1.digitaloceanspaces.com/ui/slider/map-book-1736140098369.jpg",
     },
+    {
+        url: "",
+        image: "https://mapstudy.sgp1.digitaloceanspaces.com/ui/slider/b-1749718006287.pnghttps://mapstudy.sgp1.digitaloceanspaces.com/ui/slider/b-1749718006287.png",
+    },
 ];
 const Banner = () => {
     return (

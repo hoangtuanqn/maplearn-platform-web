@@ -1,8 +1,8 @@
-import GraduationIcon from "~/components/icons/GraduationIcon";
-import EntertainmentIcon from "~/components/icons/EntertainmentIcon";
-import DocumentIcon from "~/components/icons/DocumentIcon";
-import NewsIcon from "~/components/icons/NewsIcon";
-import HomeIcon from "~/components/icons/HomeIcon";
+import HomeIcon from "../../icons/HomeIcon";
+import GraduationIcon from "../../icons/GraduationIcon";
+import EntertainmentIcon from "../../icons/EntertainmentIcon";
+import DocumentIcon from "../../icons/DocumentIcon";
+import NewsIcon from "../../icons/NewsIcon";
 import FooterMobileLink from "./FooterLink";
 const footerLinks = [
     {

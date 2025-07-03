@@ -1,10 +1,10 @@
 import { KeyRound } from "lucide-react";
 import HeaderLink from "./HeaderLink";
-import HomeIcon from "~/components/icons/HomeIcon";
-import GraduationIcon from "~/components/icons/GraduationIcon";
-import DocumentIcon from "~/components/icons/DocumentIcon";
-import NewsIcon from "~/components/icons/NewsIcon";
-import EntertainmentIcon from "~/components/icons/EntertainmentIcon";
+import HomeIcon from "../../icons/HomeIcon";
+import GraduationIcon from "../../icons/GraduationIcon";
+import DocumentIcon from "../../icons/DocumentIcon";
+import NewsIcon from "../../icons/NewsIcon";
+import EntertainmentIcon from "../../icons/EntertainmentIcon";
 const headerLinks = [
     {
         label: "Trang chủ",

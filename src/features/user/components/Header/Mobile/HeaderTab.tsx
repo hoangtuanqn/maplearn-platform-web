@@ -1,5 +1,3 @@
-import React from "react";
-
 const HeaderTab = () => {
     return (
         <div className="sticky top-[54px] flex w-full items-center">

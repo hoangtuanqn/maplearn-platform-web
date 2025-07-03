@@ -1,5 +1,5 @@
 import { CalendarRange } from "lucide-react";
-import { NewType } from "~/types/menu.type";
+import { NewType } from "~/features/user/types/menu.type";
 const NewLink = ({ title, url, image, createdAt }: NewType) => {
     return (
         <a className="flex cursor-pointer items-start rounded-md py-3" href={url}>

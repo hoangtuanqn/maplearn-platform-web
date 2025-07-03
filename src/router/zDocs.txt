@@ -1,0 +1,8 @@
+src/
+├── router/
+│   ├── index.tsx           # Import tất cả route
+│   ├── PublicRoutes.tsx    # Public, ai cũng vào được
+│   ├── UserRoutes.tsx      # User role
+│   ├── AdminRoutes.tsx     # Admin role
+│   ├── ProtectedRoute.tsx  # Check login / role
+│   └── routePaths.ts       # Nơi lưu các path cố định
