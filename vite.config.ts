@@ -14,7 +14,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "~": path.resolve(__dirname, "./src"), // alias @ trỏ đến thư mục src
+            "~": path.resolve(__dirname, "./src"), // alias ~ trỏ đến thư mục src
         },
     },
 });
