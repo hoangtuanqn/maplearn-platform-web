@@ -13,7 +13,7 @@ const Input = ({
             <div className={`flex h-11 w-full items-center rounded-xl bg-[#F2F5F9] ${wrapperClassName}`}>
                 <input
                     type={type}
-                    className={`placeholder:text-[#99AEBE]h-full h-full grow rounded-xl bg-transparent !px-4 placeholder:text-[#99AEBE] ${className}`}
+                    className={`placeholder:text-[#99AEBE]h-full h-full grow rounded-xl bg-transparent !px-4 outline-0 placeholder:text-[#99AEBE] ${error ? `border-1 border-red-400` : ``} ${className}`}
                     {...props}
                 />
             </div>

@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { ROUTE_PATHS } from "./routePaths";
 import UserLayout from "~/layouts/UserLayout";
+import Register from "~/features/user/pages/Register";
 
 // const Home = lazy(() => import("~/features/user/pages/Home"));
 const NotFound = lazy(() => import("~/features/user/pages/NotFound"));
@@ -14,6 +15,10 @@ export const publicRoutes = [
             {
                 path: ROUTE_PATHS.login,
                 element: <Login />,
+            },
+            {
+                path: ROUTE_PATHS.register,
+                element: <Register />,
             },
             {
                 path: ROUTE_PATHS.forbidden,

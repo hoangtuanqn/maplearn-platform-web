@@ -15,10 +15,12 @@ const InputPassword = ({
 
     return (
         <div>
-            <div className={`flex h-11 w-full items-center rounded-xl bg-[#F2F5F9] ${wrapperClassName}`}>
+            <div
+                className={`flex h-11 w-full items-center rounded-xl bg-[#F2F5F9] ${error ? `border-1 border-red-400` : ``} ${wrapperClassName}`}
+            >
                 <input
                     type={isShow ? "text" : type}
-                    className={`placeholder:text-[#99AEBE]h-full h-full grow rounded-xl bg-transparent !px-4 placeholder:text-[#99AEBE] ${className}`}
+                    className={`placeholder:text-[#99AEBE]h-full h-full grow rounded-xl bg-transparent !px-4 outline-0 placeholder:text-[#99AEBE] ${className}`}
                     {...props}
                 />
                 <div className="t1-flex-center group h-full w-12 cursor-pointer">

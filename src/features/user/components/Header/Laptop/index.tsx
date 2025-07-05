@@ -54,14 +54,14 @@ const HeaderLaptop = () => {
                     <div className="flex w-full items-center justify-between">
                         <div className="flex items-center max-xl:hidden">
                             <div className="tab:pr-4">
-                                <a className="cursor-pointer" href="/">
+                                <Link className="cursor-pointer" to={ROUTE_PATHS.home}>
                                     <span className="sr-only">MapLearn</span>
                                     <img
                                         className="h-10 rounded-xl object-contain"
                                         alt=""
                                         src="/assets/images/logo/logo-64.png"
                                     />
-                                </a>
+                                </Link>
                             </div>
                             <div>
                                 {/* <div className="block w-[calc(100%-1.25rem)] pr-4 text-base"></div> */}
@@ -87,17 +87,20 @@ const HeaderLaptop = () => {
                             </div>
                         </div>
                         <div className="flex items-center justify-end gap-6">
-                            <a
+                            <Link
                                 className="text-secondary-typo max-lap:hidden flex items-center gap-3 whitespace-nowrap hover:text-gray-900"
-                                href="/kich-hoat-the"
+                                to="/kich-hoat-the"
                             >
                                 <KeyRound />
                                 <span>Kích hoạt thẻ</span>
-                            </a>
+                            </Link>
                             <div className="bg-secondary-typo max-lap:hidden h-6 w-0.5"></div>
-                            <a className="text-secondary-typo whitespace-nowrap hover:text-gray-900" href="/dang-ky">
+                            <Link
+                                className="text-secondary-typo whitespace-nowrap hover:text-gray-900"
+                                to={ROUTE_PATHS.register}
+                            >
                                 <span>Đăng ký</span>
-                            </a>
+                            </Link>
                             <Link
                                 className="bg-primary hover:bg-primary-light t1-flex-center rounded-xl border-2 border-transparent px-5 py-1.5 whitespace-nowrap text-white shadow-sm duration-150 ease-out"
                                 to={ROUTE_PATHS.login}
