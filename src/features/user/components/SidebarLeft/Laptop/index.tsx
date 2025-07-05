@@ -1,3 +1,4 @@
+import { ROUTE_PATHS } from "~/router/routePaths";
 import { MenuItemLink } from "../MenuItemLink";
 import SocialLink from "../SocialLink";
 
@@ -8,7 +9,7 @@ const SideBarLaptop = () => {
                 className="sticky w-[100%] overflow-auto rounded-md [&>a]:mt-1"
                 style={{ top: "76px", maxHeight: "calc(100vh - -76px)" }}
             >
-                <MenuItemLink title="Đăng nhập" url="/dang-nhap" image="/assets/icons/login.svg" />
+                <MenuItemLink title="Đăng nhập" url={ROUTE_PATHS.login} image="/assets/icons/login.svg" />
 
                 <div className="my-3 ml-4 h-[1px] w-[calc(100%-1.5rem)] bg-[rgba(0,0,0,0.1)]"></div>
 

@@ -2,3 +2,8 @@
 - Library Lucide Icons: https://lucide.dev/icons/
 - Swipper: https://swiperjs.com/react
 - Library Animation Reloading: https://react-loading-indicators.netlify.app/
+- Lodash: https://lodash.com/docs/4.17.15
+- React Hook Form: https://react-hook-form.com/ts
+- Yup: https://yup-docs.vercel.app/docs/typescript
+- Toast Message: https://sonner.emilkowal.ski/
+- Axios: https://axios-http.com/docs/intro

@@ -1,4 +1,5 @@
 import { ElementType } from "react";
+import { Link } from "react-router-dom";
 export type ItemLinkType = {
     icon: ElementType;
     label: string;
@@ -8,7 +9,7 @@ export type ItemLinkType = {
 };
 const HeaderLink = ({ label, icon: Icon, href, isActive = false }: ItemLinkType) => {
     return (
-        <a className="cursor-pointer" href={href}>
+        <Link className="cursor-pointer" to={href}>
             <div className="h-max w-max">
                 <div
                     className="view_tooltip flex items-center duration-200 hover:scale-110 md:px-4 lg:px-6"
@@ -18,7 +19,7 @@ const HeaderLink = ({ label, icon: Icon, href, isActive = false }: ItemLinkType)
                     <Icon isActive={isActive} />
                 </div>
             </div>
-        </a>
+        </Link>
     );
 };
 
