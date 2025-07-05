@@ -7,7 +7,7 @@ const Home = lazy(() => import("~/features/user/pages/Home"));
 
 export const userRoutes = {
     path: ROUTE_PATHS.home,
-    element: <UserLayout />, // Bắt buộc login
+    element: <UserLayout />,
     children: [
         { index: true, element: <Home /> },
         // { path: ROUTE_PATHS.profile.slice(1), element: <Profile /> },

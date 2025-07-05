@@ -5,15 +5,16 @@ import UserLayout from "~/layouts/UserLayout";
 // const Home = lazy(() => import("~/features/user/pages/Home"));
 const NotFound = lazy(() => import("~/features/user/pages/NotFound"));
 const Forbidden = lazy(() => import("~/features/user/pages/Forbidden"));
+const Login = lazy(() => import("~/features/user/pages/Login"));
 export const publicRoutes = [
     {
         path: "/",
         element: <UserLayout />,
         children: [
-            // {
-            //     index: true,
-            //     element: <Home />,
-            // },
+            {
+                path: ROUTE_PATHS.login,
+                element: <Login />,
+            },
             {
                 path: ROUTE_PATHS.forbidden,
                 element: <Forbidden />,

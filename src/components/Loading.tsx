@@ -3,8 +3,6 @@ import { Atom } from "react-loading-indicators";
 
 const Loading = () => {
     useEffect(() => {
-        console.log("cc");
-
         // Chặn scroll khi component mount
         document.body.style.overflow = "hidden";
 
@@ -14,7 +12,7 @@ const Loading = () => {
         };
     }, []);
     return (
-        <div className="fixed inset-0 z-2000 flex items-center justify-center bg-black/30">
+        <div className="fixed inset-0 z-2000 flex items-center justify-center bg-black/20">
             <Atom color="#32cd32" size="medium" text="" textColor="" />
         </div>
     );

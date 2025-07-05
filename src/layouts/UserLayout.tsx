@@ -6,8 +6,8 @@ const UserLayout = () => {
     return (
         <>
             <Header />
-            <section className="max-w-8xl mx-auto md:mt-[56px] md:py-5 lg:px-4">
-                <div className="flex gap-2 max-md:pb-18">
+            <section className="pb-6">
+                <div className="max-w-8xl mx-auto mt-5 md:mt-[56px] md:py-5 lg:px-4">
                     <Outlet />
                 </div>
             </section>
