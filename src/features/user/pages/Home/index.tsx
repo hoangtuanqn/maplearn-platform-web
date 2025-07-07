@@ -6,8 +6,10 @@ import Teachers from "./Teachers";
 import Banner from "./Banner";
 import Courses from "./Courses";
 import HomeTab from "./HomeTab";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 
 const Home = () => {
+    useDocumentTitle("");
     return (
         <>
             <section className="flex gap-2 max-md:pb-18">

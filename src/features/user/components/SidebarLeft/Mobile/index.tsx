@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SideBarMobile = () => {
     return (
@@ -10,47 +11,47 @@ const SideBarMobile = () => {
                 <div className="flex cursor-pointer items-center rounded-md px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]">
                     <Menu className="size-6" />
                 </div>
-                <a
+                <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
-                    href="/khoa-hoc"
+                    to="/khoa-hoc"
                 >
                     <div className="flex-center size-8">
                         <img src="/assets/icons/course.svg" alt="" />
                     </div>
-                </a>
-                <a
+                </Link>
+                <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
-                    href="/thi-online"
+                    to="/thi-online"
                 >
                     <div className="flex-center size-8">
                         <img src="/assets/icons/online-exam.svg" alt="" />
                     </div>
-                </a>
-                <a
+                </Link>
+                <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
-                    href="/dau-truong-ly-thuyet"
+                    to="/dau-truong-ly-thuyet"
                 >
                     <div className="flex-center size-8">
                         <img src="/assets/icons/theory-arena.svg" alt="" />
                     </div>
-                </a>
-                <a
+                </Link>
+                <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
                     target="_blank"
-                    href="https://www.sachmap.vn/"
+                    to="https://www.sachmap.vn/"
                 >
                     <div className="flex-center size-8">
                         <img src="/assets/icons/book-map.svg" alt="" />
                     </div>
-                </a>
-                <a
+                </Link>
+                <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
-                    href="/tai-lieu"
+                    to="/tai-lieu"
                 >
                     <div className="flex-center size-8">
                         <img src="/assets/icons/document.svg" alt="" />
                     </div>
-                </a>
+                </Link>
             </div>
         </aside>
     );

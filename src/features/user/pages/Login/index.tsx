@@ -13,12 +13,14 @@ import axios from "axios";
 import { useState } from "react";
 import Loading from "~/components/Loading";
 import { useAuth } from "~/hooks/useAuth";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 const schema = yup.object({
     username: yup.string().required("Vui lòng nhập tên"),
     password: yup.string().required("Vui lòng nhập mật khẩu"),
 });
 
 const Login = () => {
+    useDocumentTitle("Đăng nhập");
     const { login } = useAuth();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);

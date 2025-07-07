@@ -1,15 +1,57 @@
 import { ROUTE_PATHS } from "~/router/routePaths";
 import { MenuItemLink } from "../MenuItemLink";
 import SocialLink from "../SocialLink";
+import { useAuth } from "~/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const SideBarLaptop = () => {
+    const { user } = useAuth();
     return (
         <div className="hidden w-[30%] xl:block 2xl:w-[20%]">
             <div
                 className="sticky w-[100%] overflow-auto rounded-md [&>a]:mt-1"
                 style={{ top: "76px", maxHeight: "calc(100vh - -76px)" }}
             >
-                <MenuItemLink title="Đăng nhập" url={ROUTE_PATHS.login} image="/assets/icons/login.svg" />
+                {user ? (
+                    <>
+                        <Link
+                            className="mb-1 flex cursor-pointer items-center justify-start rounded-lg px-3 py-2 hover:bg-[rgba(26,79,140,0.06)]"
+                            to="/ca-nhan/thong-tin"
+                        >
+                            <div
+                                className="t1-flex-center h-8 w-8 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] font-medium text-white"
+                                style={{
+                                    fontSize: "14px",
+                                    lineHeight: "14px",
+                                }}
+                            >
+                                {user.full_name.substring(0, 1)}
+                            </div>
+                            <div className="ml-4">
+                                <p className="text-primary line-clamp-1 font-medium">{user.full_name}</p>
+                                <p className="text-cp line-clamp-1 text-gray-500">{user.username}</p>
+                            </div>
+                        </Link>
+
+                        <MenuItemLink
+                            title="Thông tin cá nhân"
+                            url="/ca-nhan/thong-tin"
+                            image="/assets/icons/user-info.svg"
+                        />
+                        <MenuItemLink
+                            title="Khóa học của tôi"
+                            url="/ca-nhan/khoa-hoc"
+                            image="/assets/icons/my-courses.svg"
+                        />
+                        <MenuItemLink
+                            title="Khoá học đã lưu"
+                            url="/ca-nhan/khoa-hoc-da-luu"
+                            image="/assets/icons/saved-courses.svg"
+                        />
+                    </>
+                ) : (
+                    <MenuItemLink title="Đăng nhập" url={ROUTE_PATHS.login} image="/assets/icons/login.svg" />
+                )}
 
                 <div className="my-3 ml-4 h-[1px] w-[calc(100%-1.5rem)] bg-[rgba(0,0,0,0.1)]"></div>
 

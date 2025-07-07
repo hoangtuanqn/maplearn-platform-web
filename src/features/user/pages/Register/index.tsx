@@ -13,6 +13,7 @@ import { useAuth } from "~/hooks/useAuth";
 import axios from "axios";
 import { APP } from "~/config/env";
 import Loading from "~/components/Loading";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 
 const schema = yup
     .object({
@@ -27,6 +28,7 @@ const schema = yup
     })
     .required();
 const Register = () => {
+    useDocumentTitle("Tạo tài khoản");
     const { login } = useAuth();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
