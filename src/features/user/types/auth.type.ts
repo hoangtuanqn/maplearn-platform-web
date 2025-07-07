@@ -5,7 +5,7 @@ export interface FormLoginValues {
 }
 // Interface Form Register
 export interface FormRegisterValues extends FormLoginValues {
-    fullName: string;
+    full_name: string;
     email: string;
     username: string;
     password: string;

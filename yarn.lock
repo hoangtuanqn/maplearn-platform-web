@@ -233,6 +233,14 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
+"@cortex-js/compute-engine@0.28.0":
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/@cortex-js/compute-engine/-/compute-engine-0.28.0.tgz#110873c1f230180c7983a5a9c6b5c8257ea38243"
+  integrity sha512-kGs74P4KVNLSqu+iVhLSAvodScZdVGoZI2kOsUjnBEFCFjlPJ1Nj5TpBz/4nwPT+viguB+g7VseXsmcxWRx23Q==
+  dependencies:
+    complex-esm "^2.1.1-esm1"
+    decimal.js "^10.4.3"
+
 "@emnapi/core@^1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.4.3.tgz#9ac52d2d5aea958f67e52c40a065f51de59b77d6"
@@ -1148,6 +1156,11 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
+complex-esm@^2.1.1-esm1:
+  version "2.1.1-esm1"
+  resolved "https://registry.yarnpkg.com/complex-esm/-/complex-esm-2.1.1-esm1.tgz#06cc84fe6e1fec299bf8b7a8e759030efe808b0a"
+  integrity sha512-IShBEWHILB9s7MnfyevqNGxV0A1cfcSnewL/4uPFiSxkcQL4Mm3FxJ0pXMtCXuWLjYz3lRRyk6OfkeDZcjD6nw==
+
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
@@ -1183,6 +1196,11 @@ debug@^4.1.0, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4:
   integrity sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==
   dependencies:
     ms "^2.1.3"
+
+decimal.js@^10.4.3:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.6.0.tgz#e649a43e3ab953a72192ff5983865e509f37ed9a"
+  integrity sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==
 
 deep-is@^0.1.3:
   version "0.1.4"
@@ -1864,6 +1882,13 @@ math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
+
+mathlive@^0.105.3:
+  version "0.105.3"
+  resolved "https://registry.yarnpkg.com/mathlive/-/mathlive-0.105.3.tgz#7675bcfb19b30c6f31bb142958ed3b9944a5d429"
+  integrity sha512-eEnJIlRm1ga18ymY79di5Iuc161CzHs3PTXIg8WUHeEt/jpxFHs2CPVYRNxAzOo+5t4S7lA+HDretW4i5dsTmg==
+  dependencies:
+    "@cortex-js/compute-engine" "0.28.0"
 
 merge2@^1.3.0:
   version "1.4.1"
