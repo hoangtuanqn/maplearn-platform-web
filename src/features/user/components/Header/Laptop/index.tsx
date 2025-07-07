@@ -40,9 +40,9 @@ const headerLinks = [
 ];
 const HeaderLaptop = () => {
     return (
-        <header className="relative z-30 hidden w-full md:block">
+        <header className="fixed top-0 z-30 hidden w-full md:block">
             <div
-                className="padding-scrollbar fixed top-0 flex w-full items-center backdrop-blur-md"
+                className="padding-scrollbar flex w-full items-center backdrop-blur-md"
                 style={{
                     color: "var(--primary)",
                     height: "56px",

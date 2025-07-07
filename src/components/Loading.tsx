@@ -5,10 +5,14 @@ const Loading = () => {
     useEffect(() => {
         // Chặn scroll khi component mount
 
-        document.body.style = "padding-right: 15px; overflow-y: hidden;";
+        if (window.innerWidth <= 1280) {
+            document.body.style = "margin-right: 0px; overflow-y: hidden;";
+        } else {
+            document.body.style = "margin-right: 15px; overflow-y: hidden;";
+        }
         // Bỏ chặn khi component unmount
         return () => {
-            document.body.style = "padding-right: 0px; overflow-y: visible;";
+            document.body.style = "margin-right: 0px; overflow-y: visible;";
         };
     }, []);
     return (

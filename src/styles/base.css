@@ -51,6 +51,10 @@
         scrollbar-color: rgb(28, 58, 148) transparent;
     }
     /* End: Custom scrollbar */
+    .padding-scrollbar {
+        --scrollbar-w: 15px;
+        padding-right: calc(var(--scrollbar-w) - calc(100vw - 100%));
+    }
 
     html body {
         font-size: 14px;
