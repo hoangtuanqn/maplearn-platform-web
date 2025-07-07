@@ -3,7 +3,7 @@ import ExamCountdown from "./ExamCountdown";
 import CourseActive from "./CourseActive";
 const SidebarRight = () => {
     return (
-        <div className="hidden w-[22%] 2xl:block">
+        <aside className="hidden w-[22%] 2xl:block">
             <div
                 className="scrollbar sticky w-[100%] rounded-md"
                 // className="sticky w-[100%] overflow-hidden rounded-md pt-5"
@@ -14,7 +14,7 @@ const SidebarRight = () => {
                 <CourseActive />
                 <News />
             </div>
-        </div>
+        </aside>
     );
 };
 

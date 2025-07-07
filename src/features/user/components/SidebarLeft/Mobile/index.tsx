@@ -2,7 +2,7 @@ import { Menu } from "lucide-react";
 
 const SideBarMobile = () => {
     return (
-        <div className="hidden w-[6rem] pl-6 md:block lg:hidden">
+        <aside className="hidden w-[6rem] pl-6 md:block lg:hidden">
             <div
                 className="sticky max-h-[calc(100vh-60px-20px)] w-[100%] overflow-auto rounded-md pt-5"
                 style={{ top: "56px" }}
@@ -52,7 +52,7 @@ const SideBarMobile = () => {
                     </div>
                 </a>
             </div>
-        </div>
+        </aside>
     );
 };
 
