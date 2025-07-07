@@ -11,7 +11,6 @@ const InputPassword = ({
     ...props
 }: InputProps) => {
     const [isShow, setIsShow] = useState(false);
-    console.log(isShow);
 
     return (
         <div>

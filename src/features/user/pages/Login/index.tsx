@@ -12,13 +12,14 @@ import { APP } from "~/config/env";
 import axios from "axios";
 import { useState } from "react";
 import Loading from "~/components/Loading";
-
+import { useAuth } from "~/hooks/useAuth";
 const schema = yup.object({
     username: yup.string().required("Vui lòng nhập tên"),
     password: yup.string().required("Vui lòng nhập mật khẩu"),
 });
 
 const Login = () => {
+    const { login } = useAuth();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const {
@@ -32,14 +33,22 @@ const Login = () => {
     const onSubmit: SubmitHandler<FormLoginValues> = async (data) => {
         setIsLoading(true);
         try {
-            await axios.post(`${APP.API_URL}/api/v1/login`, data, {
+            const res = await axios.post(`${APP.API_URL}/api/v1/login`, data, {
                 withCredentials: true,
             });
-            navigate("/");
+            login(res.data.data);
             toast.success("Đăng nhập thành công!");
-        } catch {
-            // console.log("Error login >> ", error);
-            toast.error("Thông tin đăng nhập không hợp lệ!");
+            navigate("/");
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                if (error.code === "ERR_NETWORK") {
+                    toast.error("Không thể kết nối tới server!");
+                    return;
+                }
+                toast.error("Thông tin đăng nhập không hợp lệ!");
+            } else {
+                toast.error("Đã xảy ra lỗi không xác định!");
+            }
         } finally {
             setIsLoading(false);
         }
