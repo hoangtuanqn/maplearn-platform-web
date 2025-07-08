@@ -1,21 +1,21 @@
-import { Link, useNavigate } from "react-router-dom";
-import { SubmitHandler, useForm } from "react-hook-form";
+import * as yup from "yup";
+import axios from "axios";
+import { toast } from "sonner";
+import { useMutation } from "@tanstack/react-query";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Form/Input";
-import { ROUTE_PATHS } from "~/router/routePaths";
 import InputPassword from "../../components/Form/InputPassword";
 import Button from "../../components/Form/Button";
-import * as yup from "yup";
-import { FormLoginValues } from "../../types/auth.type";
-import { toast } from "sonner";
-import { APP } from "~/config/env";
-import axios from "axios";
-import { useState } from "react";
 import Loading from "~/components/Loading";
+import { ROUTE_PATHS } from "~/router/routePaths";
+import { FormLoginValues } from "../../types/auth.type";
 import { useAuth } from "~/hooks/useAuth";
 import useDocumentTitle from "~/hooks/useDocumentTitle";
+import apiPublic from "~/utils/apis/publicApi";
 const schema = yup.object({
-    username: yup.string().required("Vui lòng nhập tên"),
+    username: yup.string().required("Vui lòng nhập tên tài khoản"),
     password: yup.string().required("Vui lòng nhập mật khẩu"),
 });
 
@@ -23,7 +23,6 @@ const Login = () => {
     useDocumentTitle("Đăng nhập");
     const { login } = useAuth();
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
     const {
         register,
         handleSubmit,
@@ -32,32 +31,35 @@ const Login = () => {
         mode: "onBlur",
         resolver: yupResolver(schema),
     });
-    const onSubmit: SubmitHandler<FormLoginValues> = async (data) => {
-        setIsLoading(true);
-        try {
-            const res = await axios.post(`${APP.API_URL}/api/v1/login`, data, {
-                withCredentials: true,
-            });
+    // Khai báo mutation
+    const loginMutation = useMutation({
+        mutationFn: (data: FormLoginValues) => apiPublic.post("/login", data),
+
+        onSuccess: (res) => {
             login(res.data.data);
             toast.success("Đăng nhập thành công!");
             navigate("/");
-        } catch (error: unknown) {
+        },
+
+        onError: (error) => {
             if (axios.isAxiosError(error)) {
                 if (error.code === "ERR_NETWORK") {
                     toast.error("Không thể kết nối tới server!");
-                    return;
+                } else {
+                    toast.error("Thông tin đăng nhập không hợp lệ!");
                 }
-                toast.error("Thông tin đăng nhập không hợp lệ!");
             } else {
                 toast.error("Đã xảy ra lỗi không xác định!");
             }
-        } finally {
-            setIsLoading(false);
-        }
+        },
+    });
+
+    const onSubmit: SubmitHandler<FormLoginValues> = async (data) => {
+        loginMutation.mutate(data);
     };
     return (
         <>
-            {isLoading && <Loading />}
+            {loginMutation.isPending && <Loading />}
             <section className="min-h-screen rounded-2xl bg-[#FDFDFD] py-10 max-xl:pt-12 xl:flex xl:items-center xl:justify-center">
                 <div className="text-secondary-typo flex w-full px-6 md:px-20">
                     <section className="hidden flex-1 pr-32 xl:block">

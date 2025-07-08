@@ -11,16 +11,24 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { useAuth } from "~/hooks/useAuth";
 import axios from "axios";
-import { APP } from "~/config/env";
 import Loading from "~/components/Loading";
 import useDocumentTitle from "~/hooks/useDocumentTitle";
+import apiPublic from "~/utils/apis/publicApi";
 
 const schema = yup
     .object({
-        full_name: yup.string().required("Vui lòng nhập họ và tên"),
-        email: yup.string().required("Vui lòng nhập email").email("Email không hợp lệ"),
-        username: yup.string().required("Vui lòng nhập tên tài khoản"),
-        password: yup.string().required("Vui lòng nhập mật khẩu").min(6, "Mật khẩu phải có ít nhất 6 ký tự"),
+        full_name: yup.string().required("Vui lòng nhập họ và tên").max(255, "Chỉ được nhập tối đa 255 kí tự"),
+        email: yup
+            .string()
+            .required("Vui lòng nhập email")
+            .email("Email không hợp lệ")
+            .max(255, "Chỉ được nhập tối đa 255 kí tự"),
+        username: yup.string().required("Vui lòng nhập tên tài khoản").max(255, "Chỉ được nhập tối đa 255 kí tự"),
+        password: yup
+            .string()
+            .required("Vui lòng nhập mật khẩu")
+            .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
+            .max(255, "Chỉ được nhập tối đa 255 kí tự"),
         confirmPassword: yup
             .string()
             .oneOf([yup.ref("password")], "Mật khẩu xác nhận không khớp")
@@ -44,7 +52,7 @@ const Register = () => {
     const onSubmit: SubmitHandler<FormRegisterValues> = async (data) => {
         setIsLoading(true);
         try {
-            const res = await axios.post(`${APP.API_URL}/api/v1/register`, data, {
+            const res = await apiPublic.post(`/register`, data, {
                 withCredentials: true,
             });
             login(res.data.data);

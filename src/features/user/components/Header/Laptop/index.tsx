@@ -6,13 +6,12 @@ import DocumentIcon from "../../icons/DocumentIcon";
 import NewsIcon from "../../icons/NewsIcon";
 import EntertainmentIcon from "../../icons/EntertainmentIcon";
 import { ROUTE_PATHS } from "~/router/routePaths";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "~/hooks/useAuth";
-import axios from "axios";
-import { APP } from "~/config/env";
 import { toast } from "sonner";
 import { useState } from "react";
 import Loading from "~/components/Loading";
+import privateApi from "~/utils/apis/privateApi";
 const headerLinks = [
     {
         label: "Trang chủ",
@@ -47,25 +46,14 @@ const headerLinks = [
 const HeaderLaptop = () => {
     const { user, logout } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
     const handleLogout = async () => {
         setIsLoading(true);
-        try {
-            await axios.post(
-                `${APP.API_URL}/api/v1/logout`,
-                {},
-                {
-                    withCredentials: true,
-                },
-            );
-            console.log(`${APP.API_URL}/api/v1/logout`);
-
-            logout();
-            toast.success("Đăng xuất tài khoản thành công!");
-        } catch {
-            toast.error("Đã có lỗi xảy ra!");
-        } finally {
-            setIsLoading(false);
-        }
+        privateApi.post("/auth/logout");
+        logout();
+        toast.success("Đăng xuất tài khoản thành công!");
+        setIsLoading(false);
+        navigate(ROUTE_PATHS.login);
     };
     return (
         <>
