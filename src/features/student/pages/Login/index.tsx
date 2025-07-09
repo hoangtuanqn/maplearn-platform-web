@@ -32,7 +32,9 @@ const Login = () => {
         mutationFn: (data: FormLoginValues) => apiPublic.post("/login", data),
 
         onSuccess: (res) => {
-            login(res.data.data);
+            login({
+                user: res.data.data,
+            });
             toast.success("Đăng nhập thành công!");
             navigate("/");
         },

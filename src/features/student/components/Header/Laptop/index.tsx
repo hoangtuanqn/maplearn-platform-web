@@ -44,7 +44,7 @@ const headerLinks = [
     },
 ];
 const HeaderLaptop = () => {
-    const { user, logout } = useAuth();
+    const { auth, logout } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const handleLogout = async () => {
@@ -60,15 +60,14 @@ const HeaderLaptop = () => {
             {isLoading && <Loading />}
             <header className="fixed top-0 z-30 hidden w-full md:block">
                 <div
-                    className="padding-scrollbar flex w-full items-center backdrop-blur-md"
-                    style={{
-                        color: "var(--primary)",
-                        height: "56px",
-                        backgroundColor: "rgba(255, 255, 255, 0.5)",
-                        // "--scrollbar-w": "15px",
-                    }}
+                    className="padding-scrollbar text-primary flex h-[56px] w-full items-center bg-white/50 backdrop-blur-md"
+                    // style={{
+                    //     color: "var(--primary)",
+                    //     height: "56px",
+                    //     backgroundColor: "rgba(255, 255, 255, 0.5)",
+                    // }}
                 >
-                    <div className="max-w-8xl mx-auto w-full items-center px-4">
+                    <div className="max-w-8xl mx-auto w-full items-center px-4 pl-6.5">
                         <div className="flex w-full items-center justify-between">
                             <div className="flex items-center max-xl:hidden">
                                 <div className="tab:pr-4">
@@ -113,7 +112,7 @@ const HeaderLaptop = () => {
                                     <span>Kích hoạt thẻ</span>
                                 </Link>
                                 <div className="bg-secondary-typo max-lap:hidden h-6 w-0.5"></div>
-                                {user ? (
+                                {auth.user ? (
                                     <div className="flex items-center gap-2">
                                         <div className="t1-flex-center h-9.5 w-9.5 cursor-pointer rounded-full border-2 border-[#b4d1e9] p-px">
                                             <Bell className="text-primary" />
@@ -131,7 +130,7 @@ const HeaderLaptop = () => {
                                                                 lineHeight: "0.9rem",
                                                             }}
                                                         >
-                                                            {user.full_name.substring(0, 1)}
+                                                            {auth.user.full_name.substring(0, 1)}
                                                         </div>
                                                     </div>
                                                     <ChevronDown />
@@ -148,13 +147,12 @@ const HeaderLaptop = () => {
                                                     left: "auto",
                                                     transitionDuration: "150ms",
                                                     transitionTimingFunction: "ease-in-out",
-
                                                     opacity: 0,
                                                     visibility: "hidden",
                                                 }}
                                             >
                                                 <div className="w-36 rounded-lg bg-white p-1 shadow-md">
-                                                    <Link to="/ca-nhan">
+                                                    <Link to={ROUTE_PATHS.user.profile}>
                                                         <button className="w-full cursor-pointer rounded-md px-2 py-1.5 text-left text-black duration-150 hover:bg-[#ededed]">
                                                             Cá nhân
                                                         </button>

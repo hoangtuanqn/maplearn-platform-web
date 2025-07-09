@@ -1,10 +1,11 @@
 import { Suspense } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, useRoutes } from "react-router-dom";
+import { Provider } from "react-redux";
 import { routes } from "~/router";
 import Loading from "./components/Loading";
 import ScrollToTop from "./components/ScrollToTop";
-import { AuthProvider } from "./contexts/AuthProvider";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { store } from "./store";
 function AppRouter() {
     return useRoutes(routes);
 }
@@ -15,9 +16,9 @@ const App = () => {
             <Suspense fallback={<Loading />}>
                 <QueryClientProvider client={queryClient}>
                     <ScrollToTop />
-                    <AuthProvider>
+                    <Provider store={store}>
                         <AppRouter />
-                    </AuthProvider>
+                    </Provider>
                 </QueryClientProvider>
             </Suspense>
         </BrowserRouter>

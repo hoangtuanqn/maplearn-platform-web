@@ -1,15 +1,17 @@
 import { lazy } from "react";
 import { ROUTE_PATHS } from "./routePaths";
-import UserLayout from "~/layouts/UserLayout";
+import StudentLayout from "~/layouts/StudentLayout";
 // import ProtectedRoute from "./ProtectedRoute";
 
-const Home = lazy(() => import("~/features/student/pages/Home"));
+const Profile = lazy(() => import("~/features/student/pages/Profile"));
 
 export const userRoutes = {
-    path: ROUTE_PATHS.home,
-    element: <UserLayout />,
+    path: ROUTE_PATHS.user.profile,
+    element: <StudentLayout />,
     children: [
-        { index: true, element: <Home /> },
-        // { path: ROUTE_PATHS.profile.slice(1), element: <Profile /> },
+        {
+            index: true,
+            element: <Profile />,
+        },
     ],
 };

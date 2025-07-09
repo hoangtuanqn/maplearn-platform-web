@@ -5,14 +5,14 @@ import { useAuth } from "~/hooks/useAuth";
 import { Link } from "react-router-dom";
 
 const SideBarLaptop = () => {
-    const { user } = useAuth();
+    const { auth } = useAuth();
     return (
         <div className="hidden w-[30%] xl:block 2xl:w-[20%]">
             <div
                 className="sticky w-[100%] overflow-auto rounded-md [&>a]:mt-1"
                 style={{ top: "76px", maxHeight: "calc(100vh - -76px)" }}
             >
-                {user ? (
+                {auth.user ? (
                     <>
                         <Link
                             className="mb-1 flex cursor-pointer items-center justify-start rounded-lg px-3 py-2 hover:bg-[rgba(26,79,140,0.06)]"
@@ -25,17 +25,17 @@ const SideBarLaptop = () => {
                                     lineHeight: "14px",
                                 }}
                             >
-                                {user.full_name.substring(0, 1)}
+                                {auth.user.full_name.substring(0, 1)}
                             </div>
                             <div className="ml-4">
-                                <p className="text-primary line-clamp-1 font-medium">{user.full_name}</p>
-                                <p className="text-cp line-clamp-1 text-gray-500">{user.username}</p>
+                                <p className="text-primary line-clamp-1 font-medium">{auth.user.full_name}</p>
+                                <p className="text-cp line-clamp-1 text-gray-500">{auth.user.username}</p>
                             </div>
                         </Link>
 
                         <MenuItemLink
                             title="Thông tin cá nhân"
-                            url="/ca-nhan/thong-tin"
+                            url={ROUTE_PATHS.user.profile}
                             image="/assets/icons/user-info.svg"
                         />
                         <MenuItemLink

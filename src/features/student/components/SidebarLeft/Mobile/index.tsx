@@ -5,7 +5,7 @@ const SideBarMobile = () => {
     return (
         <aside className="hidden w-[6rem] pl-6 md:block lg:hidden">
             <div
-                className="sticky max-h-[calc(100vh-60px-20px)] w-[100%] overflow-auto rounded-md pt-5"
+                className="sticky max-h-[calc(100vh-60px-20px)] w-[100%] overflow-auto rounded-md"
                 style={{ top: "56px" }}
             >
                 <div className="flex cursor-pointer items-center rounded-md px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]">

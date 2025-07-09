@@ -6,7 +6,7 @@ interface HeaderSectionType {
 const HeaderSection = ({ title, url = "#" }: HeaderSectionType) => {
     return (
         <div className="t1-flex-center justify-between">
-            <h3 className="text-secondary-typo text-base font-medium">{title}</h3>
+            <h3 className="block-heading">{title}</h3>
             <a href={url} className="t1-flex-center justify-between gap-1 text-gray-500 italic">
                 <span>Xem tất cả</span>
                 <TrendingUp />
