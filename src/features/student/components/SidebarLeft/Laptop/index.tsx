@@ -16,7 +16,7 @@ const SideBarLaptop = () => {
                     <>
                         <Link
                             className="mb-1 flex cursor-pointer items-center justify-start rounded-lg px-3 py-2 hover:bg-[rgba(26,79,140,0.06)]"
-                            to="/ca-nhan/thong-tin"
+                            to={ROUTE_PATHS.user.profile}
                         >
                             <div
                                 className="t1-flex-center h-8 w-8 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] font-medium text-white"

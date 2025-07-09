@@ -4,6 +4,7 @@ import EntertainmentIcon from "../../icons/EntertainmentIcon";
 import DocumentIcon from "../../icons/DocumentIcon";
 import NewsIcon from "../../icons/NewsIcon";
 import FooterMobileLink from "./FooterLink";
+import { ROUTE_PATHS } from "~/router/routePaths";
 const footerLinks = [
     {
         label: "Trang chủ",
@@ -31,7 +32,7 @@ const footerLinks = [
     {
         label: "Đăng nhập",
         icon: EntertainmentIcon,
-        href: "/ca-nhan",
+        href: ROUTE_PATHS.login,
         isActive: false,
     },
 ];
