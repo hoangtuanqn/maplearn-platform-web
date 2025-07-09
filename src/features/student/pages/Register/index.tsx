@@ -5,7 +5,6 @@ import Input from "../../components/Form/Input";
 import { ROUTE_PATHS } from "~/router/routePaths";
 import InputPassword from "../../components/Form/InputPassword";
 import Button from "../../components/Form/Button";
-import * as yup from "yup";
 import { FormRegisterValues } from "../../types/auth.type";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -14,27 +13,8 @@ import axios from "axios";
 import Loading from "~/components/Loading";
 import useDocumentTitle from "~/hooks/useDocumentTitle";
 import apiPublic from "~/utils/apis/publicApi";
+import { registerSchema } from "./register.schema";
 
-const schema = yup
-    .object({
-        full_name: yup.string().required("Vui lòng nhập họ và tên").max(255, "Chỉ được nhập tối đa 255 kí tự"),
-        email: yup
-            .string()
-            .required("Vui lòng nhập email")
-            .email("Email không hợp lệ")
-            .max(255, "Chỉ được nhập tối đa 255 kí tự"),
-        username: yup.string().required("Vui lòng nhập tên tài khoản").max(255, "Chỉ được nhập tối đa 255 kí tự"),
-        password: yup
-            .string()
-            .required("Vui lòng nhập mật khẩu")
-            .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
-            .max(255, "Chỉ được nhập tối đa 255 kí tự"),
-        confirmPassword: yup
-            .string()
-            .oneOf([yup.ref("password")], "Mật khẩu xác nhận không khớp")
-            .required("Vui lòng xác nhận lại mật khẩu"),
-    })
-    .required();
 const Register = () => {
     useDocumentTitle("Tạo tài khoản");
     const { login } = useAuth();
@@ -47,7 +27,7 @@ const Register = () => {
         formState: { errors },
     } = useForm<FormRegisterValues>({
         mode: "onBlur",
-        resolver: yupResolver(schema),
+        resolver: yupResolver(registerSchema),
     });
     const onSubmit: SubmitHandler<FormRegisterValues> = async (data) => {
         setIsLoading(true);

@@ -3,7 +3,7 @@ import { ROUTE_PATHS } from "./routePaths";
 import UserLayout from "~/layouts/UserLayout";
 // import ProtectedRoute from "./ProtectedRoute";
 
-const Home = lazy(() => import("~/features/user/pages/Home"));
+const Home = lazy(() => import("~/features/student/pages/Home"));
 
 export const userRoutes = {
     path: ROUTE_PATHS.home,

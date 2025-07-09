@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SidebarType } from "~/features/user/types/menu.type";
+import { SidebarType } from "~/features/student/types/menu.type";
 
 export const MenuItemLink = ({ title, image, url, className }: SidebarType) => {
     return (

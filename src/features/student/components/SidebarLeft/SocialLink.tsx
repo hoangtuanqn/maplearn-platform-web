@@ -1,4 +1,4 @@
-import { SidebarType } from "~/features/user/types/menu.type";
+import { SidebarType } from "~/features/student/types/menu.type";
 
 export default function SocialLink({ title, url, image }: SidebarType) {
     return (

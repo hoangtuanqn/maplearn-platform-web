@@ -1,4 +1,3 @@
-import * as yup from "yup";
 import axios from "axios";
 import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
@@ -14,10 +13,7 @@ import { FormLoginValues } from "../../types/auth.type";
 import { useAuth } from "~/hooks/useAuth";
 import useDocumentTitle from "~/hooks/useDocumentTitle";
 import apiPublic from "~/utils/apis/publicApi";
-const schema = yup.object({
-    username: yup.string().required("Vui lòng nhập tên tài khoản"),
-    password: yup.string().required("Vui lòng nhập mật khẩu"),
-});
+import { loginSchema } from "./login.schema";
 
 const Login = () => {
     useDocumentTitle("Đăng nhập");
@@ -29,7 +25,7 @@ const Login = () => {
         formState: { errors },
     } = useForm<FormLoginValues>({
         mode: "onBlur",
-        resolver: yupResolver(schema),
+        resolver: yupResolver(loginSchema),
     });
     // Khai báo mutation
     const loginMutation = useMutation({
