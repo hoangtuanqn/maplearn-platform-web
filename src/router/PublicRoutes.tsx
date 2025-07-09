@@ -1,17 +1,23 @@
 import { lazy } from "react";
 import { ROUTE_PATHS } from "./routePaths";
-import UserLayout from "~/layouts/UserLayout";
-import Register from "~/features/user/pages/Register";
+import StudentLayout from "~/layouts/StudentLayout";
+import Register from "~/features/student/pages/Register";
+import Home from "~/features/student/pages/Home";
 
-// const Home = lazy(() => import("~/features/user/pages/Home"));
-const NotFound = lazy(() => import("~/features/user/pages/NotFound"));
-const Forbidden = lazy(() => import("~/features/user/pages/Forbidden"));
-const Login = lazy(() => import("~/features/user/pages/Login"));
+// const Home = lazy(() => import("~/features/student/pages/Home"));
+const NotFound = lazy(() => import("~/features/student/pages/NotFound"));
+const Forbidden = lazy(() => import("~/features/student/pages/Forbidden"));
+const Login = lazy(() => import("~/features/student/pages/Login"));
 export const publicRoutes = [
     {
         path: "/",
-        element: <UserLayout />,
+        element: <StudentLayout />,
         children: [
+            {
+                index: true,
+                path: ROUTE_PATHS.home,
+                element: <Home />,
+            },
             {
                 path: ROUTE_PATHS.login,
                 element: <Login />,

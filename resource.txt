@@ -11,3 +11,4 @@
 - Yup: https://yup-docs.vercel.app/docs/typescript
 - Lodash: https://lodash.com/docs/4.17.15
 - Tanstack Query (React Query): https://tanstack.com/query/latest/docs/framework/react/overview
+- Redux: https://redux.js.org/introduction/getting-started
