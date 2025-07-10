@@ -1,5 +1,7 @@
 import { TrendingUp } from "lucide-react";
 import NewLink from "./NewLink";
+import { ROUTE_PATHS } from "~/router/routePaths";
+import { Link } from "react-router-dom";
 const posts = [
     {
         title: "Gợi ý đáp án đề thi môn Toán tốt nghiệp THPT 2025.",
@@ -103,15 +105,15 @@ export default function News() {
         <>
             <div className="mt-6 mb-2 flex items-center justify-between">
                 <p className="text-primary text-base font-medium">Tin tức</p>
-                <a className="cursor-pointer" href="/posts">
+                <Link className="cursor-pointer" to={ROUTE_PATHS.posts}>
                     <p className="t1-flex-center justify-between gap-1 text-gray-500 italic">
                         <span>Xem tất cả</span>
                         <TrendingUp />
                     </p>
-                </a>
+                </Link>
             </div>
             {posts.slice(0, 10).map(({ title, url, image, createAt }) => (
-                <NewLink key={url} title={title} url={url} image={image} createdAt={createAt}/>
+                <NewLink key={url} title={title} url={url} image={image} createdAt={createAt} />
             ))}
         </>
     );

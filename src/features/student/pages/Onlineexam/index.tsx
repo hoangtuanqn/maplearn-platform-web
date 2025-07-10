@@ -2,14 +2,12 @@ import ListExam from "./ListExam";
 import FilterPanel from "./SidebarLeft";
 const ExamOnline = () => {
     return (
-        
-            <div className="flex gap-6">
-                <FilterPanel />
-                <div className="w-full">
-                    <ListExam />
-                </div>
+        <section className="flex min-h-screen gap-6 px-6">
+            <FilterPanel />
+            <div className="w-full">
+                <ListExam />
             </div>
-        
+        </section>
     );
 };
 export default ExamOnline;

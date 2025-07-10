@@ -294,7 +294,7 @@ const Profile = () => {
                         style={{ backgroundColor: "rgb(255, 255, 255)" }}
                     >
                         <h3 className="block-heading mb-4">Thông tin cá nhân</h3>
-                        <div className="text-md flex w-fit flex-col gap-4 font-medium">
+                        <div className="flex w-fit flex-col gap-4 font-medium">
                             <div className="mb-5 flex items-center gap-8">
                                 <div
                                     className="t1-flex-center text- h-24 w-24 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] text-3xl leading-12 font-medium text-white"

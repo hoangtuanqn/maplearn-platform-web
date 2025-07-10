@@ -100,11 +100,13 @@ const posts = [
 const Posts = () => {
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {posts.map(({ title, url, image, createAt }) => (
-                    <NewLink key={url} title={title} url={url} image={image} createdAt={createAt} variant="posts"/>
-                ))}
-            </div>
+            <section className="min-h-screen px-5 pb-10">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                    {posts.map(({ title, url, image, createAt }) => (
+                        <NewLink key={url} title={title} url={url} image={image} createdAt={createAt} variant="posts" />
+                    ))}
+                </div>
+            </section>
         </>
     );
 };

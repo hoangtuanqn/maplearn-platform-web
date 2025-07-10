@@ -8,7 +8,7 @@ const CourseActive = ({ className = "" }: { className?: string }) => {
                 href="/kich-hoat-the"
             >
                 <KeyRound />
-                <span className="text-md">Kích hoạt thẻ</span>
+                <span className="">Kích hoạt thẻ</span>
             </a>
         </div>
     );
