@@ -11,3 +11,8 @@ export interface FormRegisterValues extends FormLoginValues {
     password: string;
     confirmPassword: string;
 }
+
+export interface OTPType {
+    "2fa_required": boolean;
+    user_id: number;
+}

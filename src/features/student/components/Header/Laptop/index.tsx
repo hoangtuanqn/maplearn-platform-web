@@ -1,4 +1,4 @@
-import { Bell, ChevronDown, KeyRound } from "lucide-react";
+import { Bell, ChevronDown } from "lucide-react";
 import HeaderLink from "./HeaderLink";
 import HomeIcon from "../../icons/HomeIcon";
 import GraduationIcon from "../../icons/GraduationIcon";
@@ -6,12 +6,10 @@ import DocumentIcon from "../../icons/DocumentIcon";
 import NewsIcon from "../../icons/NewsIcon";
 import EntertainmentIcon from "../../icons/EntertainmentIcon";
 import { ROUTE_PATHS } from "~/router/routePaths";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "~/hooks/useAuth";
-import { toast } from "sonner";
-import { useState } from "react";
 import Loading from "~/components/Loading";
-import privateApi from "~/utils/apis/privateApi";
+import { getCharacterName } from "~/utils/hepler";
 const headerLinks = [
     {
         label: "Trang chủ",
@@ -45,19 +43,9 @@ const headerLinks = [
 ];
 const HeaderLaptop = () => {
     const { auth, logout } = useAuth();
-    const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
-    const handleLogout = async () => {
-        setIsLoading(true);
-        privateApi.post("/auth/logout");
-        logout();
-        toast.success("Đăng xuất tài khoản thành công!");
-        setIsLoading(false);
-        navigate(ROUTE_PATHS.login);
-    };
     return (
         <>
-            {isLoading && <Loading />}
+            {logout.isPending && <Loading />}
             <header className="fixed top-0 z-30 hidden w-full md:block">
                 <div
                     className="padding-scrollbar text-primary flex h-[56px] w-full items-center bg-white/50 backdrop-blur-md"
@@ -104,14 +92,6 @@ const HeaderLaptop = () => {
                                 </div>
                             </div>
                             <div className="flex items-center justify-end gap-6">
-                                <Link
-                                    className="text-secondary-typo max-lap:hidden flex items-center gap-3 whitespace-nowrap hover:text-gray-900"
-                                    to="/kich-hoat-the"
-                                >
-                                    <KeyRound />
-                                    <span>Kích hoạt thẻ</span>
-                                </Link>
-                                <div className="bg-secondary-typo max-lap:hidden h-6 w-0.5"></div>
                                 {auth.user ? (
                                     <div className="flex items-center gap-2">
                                         <div className="t1-flex-center h-9.5 w-9.5 cursor-pointer rounded-full border-2 border-[#b4d1e9] p-px">
@@ -130,7 +110,7 @@ const HeaderLaptop = () => {
                                                                 lineHeight: "0.9rem",
                                                             }}
                                                         >
-                                                            {auth.user.full_name.substring(0, 1)}
+                                                            {getCharacterName(auth.user.full_name)}
                                                         </div>
                                                     </div>
                                                     <ChevronDown />
@@ -159,7 +139,7 @@ const HeaderLaptop = () => {
                                                     </Link>
                                                     <button
                                                         className="w-full cursor-pointer rounded-md px-2 py-1.5 text-left text-red-500 duration-150 hover:bg-[#ededed]"
-                                                        onClick={handleLogout}
+                                                        onClick={() => logout.mutate()}
                                                     >
                                                         Đăng xuất
                                                     </button>
