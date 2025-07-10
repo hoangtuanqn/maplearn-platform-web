@@ -39,9 +39,7 @@ const Register = () => {
             const res = await apiPublic.post(`/auth/register`, data, {
                 withCredentials: true,
             });
-            login({
-                user: res.data.data,
-            });
+            login(res.data.data);
             toast.success("Tạo tài khoản thành công!");
             navigate("/");
         } catch (error: unknown) {

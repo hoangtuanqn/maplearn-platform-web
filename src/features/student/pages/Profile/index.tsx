@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "~/hooks/useAuth";
 import { ROUTE_PATHS } from "~/router/routePaths";
-import { getGender } from "~/utils/hepler";
+import { getCharacterName, getGender } from "~/utils/hepler";
 
 const Profile = () => {
     const { auth } = useAuth();
@@ -16,7 +16,7 @@ const Profile = () => {
                 >
                     <div className="t1-flex-center flex-col gap-5 py-8">
                         <div className="t1-flex-center h-22 w-22 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] text-2xl leading-12 font-medium text-white">
-                            {profile?.full_name.substring(0, 1)}
+                            {getCharacterName(profile?.full_name)}
                         </div>
                         <div>
                             <div className="text-center text-xl font-medium">{profile?.full_name}</div>
@@ -305,7 +305,8 @@ const Profile = () => {
                                     //     lineHeight: "calc(3.5rem)",
                                     // }}
                                 >
-                                    {profile?.full_name.substring(0, 1)}
+                                    {/* {profile?.full_name.substring(0, 1)} */}
+                                    {getCharacterName(profile?.full_name || null)}
                                 </div>
                                 <div className="flex flex-col gap-3 leading-5 font-normal">
                                     <Link

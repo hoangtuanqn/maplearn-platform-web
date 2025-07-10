@@ -3,6 +3,7 @@ import { MenuItemLink } from "../MenuItemLink";
 import SocialLink from "../SocialLink";
 import { useAuth } from "~/hooks/useAuth";
 import { Link } from "react-router-dom";
+import { getCharacterName } from "~/utils/hepler";
 
 const SideBarLaptop = () => {
     const { auth } = useAuth();
@@ -25,7 +26,7 @@ const SideBarLaptop = () => {
                                     lineHeight: "14px",
                                 }}
                             >
-                                {auth.user.full_name.substring(0, 1)}
+                                {getCharacterName(auth.user.full_name)}
                             </div>
                             <div className="ml-4">
                                 <p className="text-primary line-clamp-1 font-medium">{auth.user.full_name}</p>
