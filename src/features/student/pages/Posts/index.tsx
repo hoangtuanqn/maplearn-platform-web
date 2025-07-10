@@ -1,5 +1,4 @@
-import { TrendingUp } from "lucide-react";
-import NewLink from "./NewLink";
+import NewLink from "../../components/SidebarRight/NewLink";
 const posts = [
     {
         title: "Gợi ý đáp án đề thi môn Toán tốt nghiệp THPT 2025.",
@@ -98,21 +97,15 @@ const posts = [
         createAt: "15:28 - 12/6/2025",
     },
 ];
-export default function News() {
+const Posts = () => {
     return (
         <>
-            <div className="mt-6 mb-2 flex items-center justify-between">
-                <p className="text-primary text-base font-medium">Tin tức</p>
-                <a className="cursor-pointer" href="/posts">
-                    <p className="t1-flex-center justify-between gap-1 text-gray-500 italic">
-                        <span>Xem tất cả</span>
-                        <TrendingUp />
-                    </p>
-                </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {posts.map(({ title, url, image, createAt }) => (
+                    <NewLink key={url} title={title} url={url} image={image} createdAt={createAt} variant="posts"/>
+                ))}
             </div>
-            {posts.slice(0, 10).map(({ title, url, image, createAt }) => (
-                <NewLink key={url} title={title} url={url} image={image} createdAt={createAt}/>
-            ))}
         </>
     );
-}
+};
+export default Posts;

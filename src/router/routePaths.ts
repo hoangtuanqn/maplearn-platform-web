@@ -2,6 +2,8 @@ export const ROUTE_PATHS = {
     home: "/",
     login: "/sign-in",
     register: "/sign-up",
+    posts: "/posts",
+    examOnline: "/exam_online",
     user: {
         profile: "/student/profile",
     },

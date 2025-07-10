@@ -56,7 +56,7 @@ const SideBarLaptop = () => {
                 <div className="my-3 ml-4 h-[1px] w-[calc(100%-1.5rem)] bg-[rgba(0,0,0,0.1)]"></div>
 
                 <MenuItemLink title="Khóa học" url="/khoa-hoc" image="/assets/icons/course.svg" />
-                <MenuItemLink title="Thi online" url="/thi-online" image="/assets/icons/online-exam.svg" />
+                <MenuItemLink title="Thi online" url={ROUTE_PATHS.examOnline} image="/assets/icons/online-exam.svg" />
                 <MenuItemLink
                     title="Đấu trường lý thuyết"
                     url="/dau-truong-ly-thuyet"
