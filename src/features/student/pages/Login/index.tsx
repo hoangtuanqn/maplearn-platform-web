@@ -1,13 +1,16 @@
-import { useState } from "react";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 import FormLogin from "./FormLogin";
 import OtpVerification from "./OtpVerification";
 import { Verify2faType } from "./login.type";
-
 const Login = () => {
     const [verify2fa, setVerify2fa] = useState<Verify2faType>({
-        required: false,
-        token: null,
+        required: Cookies.get("token_2fa") ? true : false,
+        token: Cookies.get("token_2fa") || null,
     });
+    useEffect(() => {
+        Cookies.remove("token_2fa");
+    }, []);
 
     return (
         <>

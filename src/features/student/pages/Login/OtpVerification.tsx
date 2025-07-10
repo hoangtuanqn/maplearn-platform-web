@@ -7,10 +7,12 @@ import { Verify2faType } from "./login.type";
 import Loading from "~/components/Loading";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATHS } from "~/router/routePaths";
+import { useAuth } from "~/hooks/useAuth";
 
 const OtpVerification = ({ verify2fa }: { verify2fa: Verify2faType }) => {
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
     const navigate = useNavigate();
+    const { login } = useAuth();
     useEffect(() => {
         const inputs = inputRefs.current;
 
@@ -70,8 +72,10 @@ const OtpVerification = ({ verify2fa }: { verify2fa: Verify2faType }) => {
     };
     const verify2faMutation = useMutation({
         mutationFn: (data: { otp: string; token: string | null }) => apiPublic.post("/auth/verify-2fa", data),
-        onSuccess: () => {
+        onSuccess: (data) => {
+            login(data?.data?.data);
             navigate(ROUTE_PATHS.home);
+
             toast.success("Đăng nhập thành công!");
         },
         onError: () => {
