@@ -68,7 +68,7 @@ const Register = () => {
                 <div className="text-secondary-typo flex w-full px-6 md:px-20">
                     <section className="hidden flex-1 pr-32 xl:block">
                         <h2 className="mb-2 text-4xl font-bold opacity-90">Tạo tài khoản</h2>
-                        <p className="text-md w-80 opacity-80">
+                        <p className="w-80 opacity-80">
                             Học tập và giao lưu với hàng triệu học viên trên mọi miền đất nước.
                         </p>
                         <img src="/assets/images/common/study.png" alt="" className="w-full object-cover" />

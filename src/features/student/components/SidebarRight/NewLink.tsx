@@ -1,6 +1,30 @@
 import { CalendarRange } from "lucide-react";
 import { NewType } from "~/features/student/types/menu.type";
-const NewLink = ({ title, url, image, createdAt }: NewType) => {
+type NewLinkProps = NewType & {
+    variant?: "home" | "posts";
+};
+
+const NewLink = ({ title, url, image, createdAt, variant = "home" }: NewLinkProps) => {
+    if (variant === "posts") {
+        return (
+            <div className="bg-white shadow-sm sm:rounded-lg">
+                <a href={url}>
+                    <div className="flex gap-4 p-3">
+                        <div className="aspect-square w-16 shrink-0 overflow-hidden rounded-md">
+                            <img alt={title} className="w-full" src={image} />
+                        </div>
+                        <div className="flex flex-col justify-around">
+                            <div className="text-primary mb-2 line-clamp-3 text-[14.75px] font-semibold">{title}</div>
+                            <div className="flex items-center gap-1.5 text-[#979797]">
+                                <CalendarRange className="h-4.5 w-4.5 text-[#979797]" />
+                                <span className="-mb-[3px] text-xs">{createdAt}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        );
+    }
     return (
         <a className="flex cursor-pointer items-start rounded-md py-3" href={url}>
             <img className="h-[4.75rem] w-[4.75rem] overflow-hidden rounded-lg" alt={title} src={image} />

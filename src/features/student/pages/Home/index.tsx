@@ -12,7 +12,7 @@ const Home = () => {
     useDocumentTitle("");
     return (
         <>
-            <section className="flex gap-2 max-md:pb-18">
+            <section className="flex gap-2">
                 <SidebarLeft />
                 <div className="mx-auto w-[100%] sm:m-0 sm:mr-auto md:w-[80%] lg:mx-auto lg:w-[85%] xl:w-[70%] 2xl:w-[52%]">
                     {/* Home Tab */}

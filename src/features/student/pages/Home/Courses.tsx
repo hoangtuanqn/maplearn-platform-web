@@ -15,7 +15,7 @@ const Courses = () => {
                                     alt="Thầy VNA"
                                     className="aspect-square w-full rounded-xl object-cover"
                                 />
-                                <span className="text-md mt-4 line-clamp-2 w-full font-medium">
+                                <span className="mt-4 line-clamp-2 w-full font-medium">
                                     KHOÁ I - CHUYÊN ĐỀ CƠ BẢN MÔN VẬT LÝ NĂM 2026
                                 </span>
                                 <div className="mt-1 flex items-center gap-1 text-xs font-medium">

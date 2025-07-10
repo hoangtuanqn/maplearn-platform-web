@@ -8,7 +8,7 @@ const NotFound = () => {
             </div>
             <div className="mt-[-16px] ml-2 text-xl font-bold xl:mt-[-40px] xl:text-2xl">Trang không tồn tại</div>
             <Link
-                className="xl:text-md mt-15 cursor-pointer rounded-full bg-[#CB356B] px-6 py-3 text-base font-medium text-white hover:opacity-90 xl:px-8 xl:py-3 2xl:text-lg"
+                className="mt-15 cursor-pointer rounded-full bg-[#CB356B] px-6 py-3 text-base font-medium text-white hover:opacity-90 xl:px-8 xl:py-3 2xl:text-lg"
                 to="/"
             >
                 Quay lại trang chủ

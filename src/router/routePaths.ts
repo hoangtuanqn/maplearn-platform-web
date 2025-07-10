@@ -3,6 +3,8 @@ export const ROUTE_PATHS = {
     login: "/sign-in",
     register: "/sign-up",
     authenticationSocial: "/authentication-social",
+    posts: "/posts",
+    examOnline: "/exam-online",
     user: {
         profile: "/student/profile",
     },
