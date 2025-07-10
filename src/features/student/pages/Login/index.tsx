@@ -14,9 +14,13 @@ import { useAuth } from "~/hooks/useAuth";
 import useDocumentTitle from "~/hooks/useDocumentTitle";
 import apiPublic from "~/utils/apis/publicApi";
 import { loginSchema } from "./login.schema";
+import useCapsLockWarning from "~/hooks/useCapsLockWarning";
+import LoginGoogle from "../../components/Button/LoginGoogle";
+import LoginFacebook from "../../components/Button/LoginFacebook";
 
 const Login = () => {
     useDocumentTitle("Đăng nhập");
+    const { isCapsLockOn, handleKeyEvent, handleFocus, handleBlur } = useCapsLockWarning();
     const { login } = useAuth();
     const navigate = useNavigate();
     const {
@@ -29,7 +33,7 @@ const Login = () => {
     });
     // Khai báo mutation
     const loginMutation = useMutation({
-        mutationFn: (data: FormLoginValues) => apiPublic.post("/login", data),
+        mutationFn: (data: FormLoginValues) => apiPublic.post("/auth/login", data),
 
         onSuccess: (res) => {
             login({
@@ -66,7 +70,7 @@ const Login = () => {
                     </section>
                     <section className="flex-1 xl:border-l-2 xl:border-[#e5e7eb] xl:pl-32">
                         <h3 className="text-center text-xl font-semibold uppercase">Đăng nhập</h3>
-                        <form className="flex-center mt-6 mb-10 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
+                        <form className="flex-center my-6 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-10 flex w-full flex-col gap-6">
                                 <div className="relative text-[13.5px]">
                                     <div className="mb-1.5 flex items-end justify-between">
@@ -92,13 +96,33 @@ const Login = () => {
                                         id="password"
                                         type="password"
                                         {...register("password")}
+                                        onKeyDown={handleKeyEvent}
+                                        onKeyUp={handleKeyEvent}
+                                        onFocus={handleFocus}
+                                        onBlur={handleBlur}
                                         error={errors?.password?.message}
                                     />
+                                    {isCapsLockOn && (
+                                        <span className="mt-2 block text-sm text-yellow-500">
+                                            Chú ý: Bạn đang bật Caps Lock
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                             <Button type="submit">Đăng nhập</Button>
                         </form>
-                        <div className="text-center text-sm">
+
+                        <div className="flex flex-col gap-2">
+                            <div className="t1-flex-center gap-2 text-gray-500">
+                                <span className="block h-[1.5px] w-20 bg-black/40"></span> <span>hoặc</span>
+                                <span className="block h-[1.5px] w-20 bg-black/40"></span>
+                            </div>
+                            <div className="mt-4 flex flex-col justify-center gap-2 text-[12px] sm:flex-row sm:text-sm">
+                                <LoginGoogle />
+                                <LoginFacebook />
+                            </div>
+                        </div>
+                        <div className="mt-10 text-center text-sm">
                             <span>Chưa có tài khoản? </span>
                             <Link className="hover:text-gray-900" to={ROUTE_PATHS.register}>
                                 Đăng ký

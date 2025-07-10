@@ -3,6 +3,7 @@ import { ROUTE_PATHS } from "./routePaths";
 import StudentLayout from "~/layouts/StudentLayout";
 import Register from "~/features/student/pages/Register";
 import Home from "~/features/student/pages/Home";
+import AuthenticationSocial from "~/features/student/pages/Login/AuthenticationSocial";
 
 // const Home = lazy(() => import("~/features/student/pages/Home"));
 const NotFound = lazy(() => import("~/features/student/pages/NotFound"));
@@ -21,6 +22,10 @@ export const publicRoutes = [
             {
                 path: ROUTE_PATHS.login,
                 element: <Login />,
+            },
+            {
+                path: ROUTE_PATHS.authenticationSocial,
+                element: <AuthenticationSocial />,
             },
             {
                 path: ROUTE_PATHS.register,
