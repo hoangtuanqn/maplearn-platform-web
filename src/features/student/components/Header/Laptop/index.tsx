@@ -27,13 +27,13 @@ const headerLinks = [
     {
         label: "Thi thử",
         icon: DocumentIcon,
-        href: "/thi-online",
+        href: "/examonline",
         isActive: false,
     },
     {
         label: "Tin tức",
         icon: NewsIcon,
-        href: "/tin-tuc",
+        href: "/posts",
         isActive: false,
     },
     {
