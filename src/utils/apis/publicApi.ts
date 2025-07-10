@@ -3,7 +3,7 @@ import { APP } from "~/config/env";
 
 const apiPublic = axios.create({
     baseURL: APP.API_URL,
-    withCredentials: false,
+    withCredentials: true,
 });
 
 export default apiPublic;

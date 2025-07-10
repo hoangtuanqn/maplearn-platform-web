@@ -2,6 +2,7 @@ export const ROUTE_PATHS = {
     home: "/",
     login: "/sign-in",
     register: "/sign-up",
+    authenticationSocial: "/authentication-social",
     user: {
         profile: "/student/profile",
     },
