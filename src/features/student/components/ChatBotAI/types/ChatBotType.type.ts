@@ -1,5 +1,5 @@
 export interface ChatHistoriesType {
-    role: "user" | "model" | "system";
+    role: "user" | "model";
     parts: [
         {
             text: string;
