@@ -30,7 +30,7 @@ const ExamCountdown = ({ className = "" }: { className?: string }) => {
                     <br />
                     THPT QG 2025
                 </div>
-                <div className="flex-center my-[5px] min-w-[220px] flex-col gap-1 rounded-xl bg-white py-4 text-[24px] font-bold text-[#167E5D]">
+                <div className="t1-flex-center my-[5px] min-w-[220px] flex-col gap-1 rounded-xl bg-white py-4 text-[24px] font-bold text-[#167E5D]">
                     Đã kết thúc
                 </div>
                 <div

@@ -15,15 +15,15 @@ const SideBarMobile = () => {
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
                     to="/khoa-hoc"
                 >
-                    <div className="flex-center size-8">
+                    <div className="t1-flex-center size-8">
                         <img src="/assets/icons/course.svg" alt="" />
                     </div>
                 </Link>
                 <Link
-                    className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
+                    className="t1-flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
                     to="/thi-online"
                 >
-                    <div className="flex-center size-8">
+                    <div className="t1-flex-center size-8">
                         <img src="/assets/icons/online-exam.svg" alt="" />
                     </div>
                 </Link>
@@ -31,7 +31,7 @@ const SideBarMobile = () => {
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
                     to="/dau-truong-ly-thuyet"
                 >
-                    <div className="flex-center size-8">
+                    <div className="t1-flex-center size-8">
                         <img src="/assets/icons/theory-arena.svg" alt="" />
                     </div>
                 </Link>
@@ -40,7 +40,7 @@ const SideBarMobile = () => {
                     target="_blank"
                     to="https://www.sachmap.vn/"
                 >
-                    <div className="flex-center size-8">
+                    <div className="t1-flex-center size-8">
                         <img src="/assets/icons/book-map.svg" alt="" />
                     </div>
                 </Link>
@@ -48,7 +48,7 @@ const SideBarMobile = () => {
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
                     to="/tai-lieu"
                 >
-                    <div className="flex-center size-8">
+                    <div className="t1-flex-center size-8">
                         <img src="/assets/icons/document.svg" alt="" />
                     </div>
                 </Link>

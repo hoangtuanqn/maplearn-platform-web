@@ -1,8 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "~/hooks/useAuth";
+<<<<<<< Updated upstream
 import { ROUTE_PATHS } from "~/router/routePaths";
 import { getCharacterName, getGender } from "~/utils/hepler";
+=======
+import { getGender } from "~/utils/hepler";
+import ProfileSidebar from "./layout/ProfileSidebar";
+>>>>>>> Stashed changes
 
 const Profile = () => {
     const { auth } = useAuth();
@@ -10,6 +14,7 @@ const Profile = () => {
     return (
         <section className="min-h-screen">
             <div className="flex h-full w-full gap-6">
+<<<<<<< Updated upstream
                 <div
                     className="hidden shrink-0 rounded-xl p-4 px-8 shadow-sm md:shadow-sm lg:block xl:w-[360px] 2xl:w-[28%]"
                     style={{ backgroundColor: "rgb(255, 255, 255)" }}
@@ -288,6 +293,10 @@ const Profile = () => {
                         </a>
                     </div>
                 </div>
+=======
+                <ProfileSidebar />
+
+>>>>>>> Stashed changes
                 <div className="w-full grow xl:w-[70%]">
                     <div
                         className="min-h-full rounded-xl p-4 px-8 py-6 shadow-sm md:shadow-sm"
@@ -296,6 +305,7 @@ const Profile = () => {
                         <h3 className="block-heading mb-4">Thông tin cá nhân</h3>
                         <div className="flex w-fit flex-col gap-4 font-medium">
                             <div className="mb-5 flex items-center gap-8">
+<<<<<<< Updated upstream
                                 <div
                                     className="t1-flex-center text- h-24 w-24 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] text-3xl leading-12 font-medium text-white"
                                     // style={{
@@ -307,15 +317,22 @@ const Profile = () => {
                                 >
                                     {/* {profile?.full_name.substring(0, 1)} */}
                                     {getCharacterName(profile?.full_name || null)}
+=======
+                                <div className="t1-flex-center text- h-24 w-24 shrink-0 rounded-full bg-gradient-to-b from-[#dadada] to-[#bebebe] text-3xl leading-12 font-medium text-white">
+                                    {profile?.full_name.substring(0, 1)}
+>>>>>>> Stashed changes
                                 </div>
                                 <div className="flex flex-col gap-3 leading-5 font-normal">
                                     <Link
-                                        to="/"
+                                        to="/student/profile/edit"
                                         className="bg-primary cursor-pointer rounded-lg p-2.5 text-white hover:opacity-80"
                                     >
                                         Chỉnh sửa thông tin
                                     </Link>
-                                    <Link to="/" className="rounded-lg border p-2.5 pt-3 hover:bg-slate-100">
+                                    <Link
+                                        to="/student/profile/change-password"
+                                        className="rounded-lg border p-2.5 pt-3 hover:bg-slate-100"
+                                    >
                                         Thay đổi mật khẩu
                                     </Link>
                                 </div>

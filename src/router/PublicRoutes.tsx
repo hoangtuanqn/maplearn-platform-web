@@ -11,7 +11,6 @@ import ResetPassword from "~/features/student/pages/ResetPassword";
 
 // const Home = lazy(() => import("~/features/student/pages/Home"));
 const NotFound = lazy(() => import("~/features/student/pages/NotFound"));
-const Forbidden = lazy(() => import("~/features/student/pages/Forbidden"));
 const Login = lazy(() => import("~/features/student/pages/Login"));
 export const publicRoutes = [
     {
@@ -34,18 +33,6 @@ export const publicRoutes = [
             {
                 path: ROUTE_PATHS.register,
                 element: <Register />,
-            },
-            {
-                path: ROUTE_PATHS.forgotPassword,
-                element: <ForgotPassword />,
-            },
-            {
-                path: ROUTE_PATHS.resetPassword,
-                element: <ResetPassword />,
-            },
-            {
-                path: ROUTE_PATHS.forbidden,
-                element: <Forbidden />,
             },
             {
                 path: ROUTE_PATHS.notFound,

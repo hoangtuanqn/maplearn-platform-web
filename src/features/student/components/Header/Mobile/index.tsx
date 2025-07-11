@@ -19,13 +19,13 @@ const HeaderMobile = () => {
                     </a>
                     <div className="flex h-8 items-center gap-3">
                         <button
-                            className="flex-center aspect-square w-full cursor-pointer rounded-full bg-[rgba(26,79,140,0.06)] px-3 py-3"
+                            className="t1-flex-center aspect-square w-full cursor-pointer rounded-full bg-[rgba(26,79,140,0.06)] px-3 py-3"
                             aria-expanded="false"
                         >
                             <Search color="var(--primary)" />
                         </button>
                         <button
-                            className="flex-center aspect-square w-full cursor-pointer rounded-full bg-[rgba(26,79,140,0.06)] px-3 py-3"
+                            className="t1-flex-center aspect-square w-full cursor-pointer rounded-full bg-[rgba(26,79,140,0.06)] px-3 py-3"
                             aria-expanded="false"
                         >
                             <Bell color="var(--primary)" fill="currentColor" />
