@@ -19,6 +19,7 @@ import LoginGoogle from "../../components/Button/LoginGoogle";
 import LoginFacebook from "../../components/Button/LoginFacebook";
 import Loading from "~/components/Loading";
 import { Verify2faType } from "./login.type";
+import Label from "../../components/Form/Label";
 
 const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Verify2faType>> }) => {
     useDocumentTitle("Đăng nhập");
@@ -33,7 +34,6 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
         mode: "onBlur",
         resolver: yupResolver(loginSchema),
     });
-    
 
     // Khai báo mutation
     const loginMutation = useMutation({
@@ -79,11 +79,9 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
                 <form className="flex-center my-6 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-10 flex w-full flex-col gap-6">
                         <div className="relative text-[13.5px]">
-                            <div className="mb-1.5 flex items-end justify-between">
-                                <label htmlFor="username" className="relative w-fit">
-                                    Tên tài khoản <span className="text-red-400">*</span>
-                                </label>
-                            </div>
+                            <Label id="username" required>
+                                Tên tài khoản
+                            </Label>
                             <Input
                                 placeholder="Tên tài khoản"
                                 id="username"
@@ -92,11 +90,9 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
                             />
                         </div>
                         <div className="relative text-sm">
-                            <div className="mb-1.5 flex items-end justify-between">
-                                <label htmlFor="password" className="relative w-fit">
-                                    Mật khẩu <span className="text-red-400">*</span>
-                                </label>
-                            </div>
+                            <Label id="password" required>
+                                Mật khẩu
+                            </Label>
                             <InputPassword
                                 placeholder="Mật khẩu"
                                 id="password"

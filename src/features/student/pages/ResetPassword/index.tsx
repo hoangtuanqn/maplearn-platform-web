@@ -88,7 +88,7 @@ const ResetPassword = () => {
                     </section>
                     <section className="flex-1 xl:border-l-2 xl:border-[#e5e7eb] xl:pl-32">
                         <h3 className="text-center text-xl font-semibold uppercase">Đặt lại mật khẩu</h3>
-                        <form className="flex-center my-6 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
+                        <form className="t1-flex-center my-6 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-5 flex w-full flex-col gap-6">
                                 <div className="relative text-[13.5px]">
                                     <div className="mb-1.5 flex items-end justify-between">
