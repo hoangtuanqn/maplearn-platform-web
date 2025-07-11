@@ -1,9 +1,6 @@
-import { useAuth } from "~/hooks/useAuth";
 import ProfileContentLayout from "../layout/ProfileContentLayout";
 
 const SavedQuestions = () => {
-    const { auth } = useAuth();
-    const profile = auth.user;
     return (
         <section className="min-h-screen">
             <ProfileContentLayout title="Câu hỏi đã lưu">

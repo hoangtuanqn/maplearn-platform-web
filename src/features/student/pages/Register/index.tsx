@@ -17,6 +17,7 @@ import { registerSchema } from "./register.schema";
 import useCapsLockWarning from "~/hooks/useCapsLockWarning";
 import LoginGoogle from "../../components/Button/LoginGoogle";
 import LoginFacebook from "../../components/Button/LoginFacebook";
+import Label from "../../components/Form/Label";
 
 const Register = () => {
     useDocumentTitle("Tạo tài khoản");
@@ -75,14 +76,15 @@ const Register = () => {
                     </section>
                     <section className="flex-1 xl:border-l-2 xl:border-[#e5e7eb] xl:pl-32">
                         <h3 className="text-center text-xl font-semibold uppercase">Tạo tài khoản</h3>
-                        <form className="t1-flex-center mt-6 mb-10 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
+                        <form
+                            className="t1-flex-center mt-6 mb-10 flex w-full flex-col"
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
                             <div className="mb-10 flex w-full flex-col gap-6">
                                 <div className="relative text-[13.5px]">
-                                    <div className="mb-1.5 flex items-end justify-between">
-                                        <label htmlFor="full_name" className="relative w-fit">
-                                            Họ và tên <span className="text-red-400">*</span>
-                                        </label>
-                                    </div>
+                                    <Label id="password" required>
+                                        Họ và tên
+                                    </Label>
                                     <Input
                                         placeholder="Nguyễn Văn A"
                                         id="full_name"
@@ -91,11 +93,9 @@ const Register = () => {
                                     />
                                 </div>
                                 <div className="relative text-[13.5px]">
-                                    <div className="mb-1.5 flex items-end justify-between">
-                                        <label htmlFor="email" className="relative w-fit">
-                                            Email của bạn <span className="text-red-400">*</span>
-                                        </label>
-                                    </div>
+                                    <Label id="email" required>
+                                        Email của bạn
+                                    </Label>
                                     <Input
                                         placeholder="phamhoangtuanqn@fpt.edu.vn"
                                         id="email"
@@ -104,11 +104,9 @@ const Register = () => {
                                     />
                                 </div>
                                 <div className="relative text-[13.5px]">
-                                    <div className="mb-1.5 flex items-end justify-between">
-                                        <label htmlFor="username" className="relative w-fit">
-                                            Tên tài khoản <span className="text-red-400">*</span>
-                                        </label>
-                                    </div>
+                                    <Label id="username" required>
+                                        Tên tài khoản
+                                    </Label>
                                     <Input
                                         placeholder="nguyenvana"
                                         id="username"
@@ -117,11 +115,9 @@ const Register = () => {
                                     />
                                 </div>
                                 <div className="relative text-sm">
-                                    <div className="mb-1.5 flex items-end justify-between">
-                                        <label htmlFor="password" className="relative w-fit">
-                                            Mật khẩu <span className="text-red-400">*</span>
-                                        </label>
-                                    </div>
+                                    <Label id="password" required>
+                                        Mật khẩu
+                                    </Label>
                                     <InputPassword
                                         placeholder="Mật khẩu"
                                         id="password"
@@ -140,11 +136,9 @@ const Register = () => {
                                     )}
                                 </div>
                                 <div className="relative text-sm">
-                                    <div className="mb-1.5 flex items-end justify-between">
-                                        <label htmlFor="confirmPassword" className="relative w-fit">
-                                            Xác nhận lại mật khẩu <span className="text-red-400">*</span>
-                                        </label>
-                                    </div>
+                                    <Label id="confirmPassword" required>
+                                        Xác nhận lại mật khẩu
+                                    </Label>
                                     <InputPassword
                                         placeholder="Xác nhận lại mật khẩu"
                                         id="confirmPassword"

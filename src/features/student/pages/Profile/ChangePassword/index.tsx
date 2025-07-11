@@ -1,14 +1,17 @@
-import React from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useAuth } from "~/hooks/useAuth";
 import { changePasswordSchema } from "./changePasswordSchema";
 import ProfileContentLayout from "../layout/ProfileContentLayout";
 import InputPassword from "../../../components/Form/InputPassword";
 import Loading from "~/components/Loading";
 import apiPrivate from "~/utils/apis/privateApi";
+import axios from "axios";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
+import Button from "~/features/student/components/Form/Button";
+import { useUnsavedChangesWarning } from "~/hooks/useUnsavedChangesWarning";
+import Label from "~/features/student/components/Form/Label";
 
 type ChangePasswordFormData = {
     oldPassword: string;
@@ -17,12 +20,11 @@ type ChangePasswordFormData = {
 };
 
 const ChangePassword = () => {
-    const { auth } = useAuth();
-    const profile = auth.user;
+    useDocumentTitle("Đổi mật khẩu");
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isDirty },
         reset,
     } = useForm<ChangePasswordFormData>({
         resolver: yupResolver(changePasswordSchema),
@@ -32,6 +34,7 @@ const ChangePassword = () => {
             confirmPassword: "",
         },
     });
+    useUnsavedChangesWarning(isDirty);
 
     // Mutation dùng react-query
     const mutation = useMutation({
@@ -40,11 +43,13 @@ const ChangePassword = () => {
             toast.success("Đổi mật khẩu thành công!");
             reset();
         },
-        onError: (error: any) => {
-            if (error?.response?.data?.message) {
-                toast.error(error.response.data.message);
-            } else {
-                toast.error("Đổi mật khẩu thất bại!");
+        onError: (error) => {
+            if (axios.isAxiosError(error)) {
+                if (error?.response?.data?.message) {
+                    toast.error(error.response.data.message);
+                } else {
+                    toast.error("Đổi mật khẩu thất bại!");
+                }
             }
         },
     });
@@ -56,7 +61,6 @@ const ChangePassword = () => {
     const handleCancel = () => {
         reset();
     };
-
     return (
         <section className="min-h-screen">
             {mutation.isPending && <Loading />}
@@ -64,12 +68,9 @@ const ChangePassword = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-8 flex w-full max-w-[500px] flex-col gap-5">
                         <div className="w-full">
-                            <div className="mb-1 flex items-end justify-between gap-4">
-                                <label htmlFor="oldPassword" className="relative w-fit shrink-0 text-xs">
-                                    Mật khẩu cũ
-                                    <span className="text-md absolute -top-1 -right-3 text-red-500">*</span>
-                                </label>
-                            </div>
+                            <Label id="oldPassword" required>
+                                Mật khẩu cũ
+                            </Label>
                             <InputPassword
                                 placeholder="Mật khẩu cũ"
                                 id="oldPassword"
@@ -78,12 +79,9 @@ const ChangePassword = () => {
                             />
                         </div>
                         <div className="w-full">
-                            <div className="mb-1 flex items-end justify-between gap-4">
-                                <label htmlFor="newPassword" className="relative w-fit shrink-0 text-xs">
-                                    Mật khẩu mới
-                                    <span className="text-md absolute -top-1 -right-3 text-red-500">*</span>
-                                </label>
-                            </div>
+                            <Label id="newPassword" required>
+                                Mật khẩu mới
+                            </Label>
                             <InputPassword
                                 placeholder="Mật khẩu mới"
                                 id="newPassword"
@@ -92,12 +90,9 @@ const ChangePassword = () => {
                             />
                         </div>
                         <div className="w-full">
-                            <div className="mb-1 flex items-end justify-between gap-4">
-                                <label htmlFor="confirmPassword" className="relative w-fit shrink-0 text-xs">
-                                    Xác nhận lại mật khẩu
-                                    <span className="text-md absolute -top-1 -right-3 text-red-500">*</span>
-                                </label>
-                            </div>
+                            <Label id="newPassword" required>
+                                Xác nhận lại mật khẩu
+                            </Label>
                             <InputPassword
                                 placeholder="Xác nhận lại mật khẩu"
                                 id="confirmPassword"
@@ -107,19 +102,15 @@ const ChangePassword = () => {
                         </div>
                     </div>
                     <div className="mb-5 flex w-full justify-start gap-5">
-                        <button
-                            type="submit"
-                            className="bg-primary flex items-center rounded-lg px-2.5 py-2 text-white hover:opacity-80"
-                            disabled={mutation.isPending}
-                        >
+                        <Button className="!m-0 !w-fit" type="submit">
                             Cập nhật
-                        </button>
+                        </Button>
                         <button
                             type="button"
-                            className="rounded-lg border border-gray-300 px-2.5 hover:bg-slate-100"
+                            className="cursor-pointer rounded-xl border border-gray-300 px-8 hover:bg-slate-100"
                             onClick={handleCancel}
                         >
-                            Huỷ
+                            Bỏ thay đổi
                         </button>
                     </div>
                 </form>
