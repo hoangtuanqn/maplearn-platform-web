@@ -33,6 +33,8 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
         mode: "onBlur",
         resolver: yupResolver(loginSchema),
     });
+    
+
     // Khai báo mutation
     const loginMutation = useMutation({
         mutationFn: (data: FormLoginValues | OTPType) => apiPublic.post("/auth/login", data),
@@ -106,11 +108,17 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
                                 onBlur={handleBlur}
                                 error={errors?.password?.message}
                             />
-                            {isCapsLockOn && (
-                                <span className="mt-2 block text-sm text-yellow-500">
-                                    Chú ý: Bạn đang bật Caps Lock
-                                </span>
-                            )}
+                            <div className="mt-4 flex justify-between text-sm">
+                                {isCapsLockOn ? (
+                                    <span className="text-yellow-500">Chú ý: Bạn đang bật Caps Lock</span>
+                                ) : (
+                                    <span></span>
+                                )}
+
+                                <Link to={ROUTE_PATHS.forgotPassword} className="underline">
+                                    Bạn quên mật khẩu
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <Button type="submit">Đăng nhập</Button>

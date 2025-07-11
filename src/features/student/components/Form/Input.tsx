@@ -6,6 +6,7 @@ const Input = ({
     errorClassName,
     type = "text",
     className, // className của input cũng có thể truyền từ ngoài
+    disabled = false,
     ...props
 }: InputProps) => {
     return (
@@ -13,7 +14,7 @@ const Input = ({
             <div className={`flex h-11 w-full items-center rounded-xl bg-[#F2F5F9] ${wrapperClassName}`}>
                 <input
                     type={type}
-                    className={`placeholder:text-[#99AEBE]h-full h-full grow rounded-xl bg-transparent !px-4 outline-0 placeholder:text-[#99AEBE] ${error ? `border-1 border-red-400` : ``} ${className}`}
+                    className={`h-full grow rounded-xl !px-4 outline-0 placeholder:text-[#99AEBE] ${error ? `border-1 border-red-400` : ``} ${disabled ? `cursor-not-allowed bg-gray-300` : `bg-transparent`} ${className}`}
                     {...props}
                 />
             </div>

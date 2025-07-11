@@ -6,6 +6,8 @@ import Home from "~/features/student/pages/Home";
 import AuthenticationSocial from "~/features/student/pages/Login/AuthenticationSocial";
 import Posts from "~/features/student/pages/Posts";
 import ExamOnline from "~/features/student/pages/Onlineexam";
+import ForgotPassword from "~/features/student/pages/ForgotPassword";
+import ResetPassword from "~/features/student/pages/ResetPassword";
 
 // const Home = lazy(() => import("~/features/student/pages/Home"));
 const NotFound = lazy(() => import("~/features/student/pages/NotFound"));
@@ -32,6 +34,14 @@ export const publicRoutes = [
             {
                 path: ROUTE_PATHS.register,
                 element: <Register />,
+            },
+            {
+                path: ROUTE_PATHS.forgotPassword,
+                element: <ForgotPassword />,
+            },
+            {
+                path: ROUTE_PATHS.resetPassword,
+                element: <ResetPassword />,
             },
             {
                 path: ROUTE_PATHS.forbidden,
