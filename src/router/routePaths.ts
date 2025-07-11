@@ -1,6 +1,8 @@
 export const ROUTE_PATHS = {
     home: "/",
     login: "/sign-in",
+    forgotPassword: "/forgot-password",
+    resetPassword: "/reset-password",
     register: "/sign-up",
     authenticationSocial: "/authentication-social",
     posts: "/posts",
