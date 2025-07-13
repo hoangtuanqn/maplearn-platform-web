@@ -1,6 +1,6 @@
 import News from "./News";
 import ExamCountdown from "./ExamCountdown";
-import CourseActive from "./CourseActive";
+// import CourseActive from "./CourseActive";
 const SidebarRight = () => {
     return (
         <aside className="hidden w-[22%] 2xl:block">
@@ -11,7 +11,7 @@ const SidebarRight = () => {
             >
                 <div className="flex flex-col gap-5"></div>
                 <ExamCountdown />
-                <CourseActive />
+                {/* <CourseActive /> */}
                 <News />
             </div>
         </aside>
