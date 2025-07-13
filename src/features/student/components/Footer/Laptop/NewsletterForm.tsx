@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import { toast } from "sonner";
 import { useInput } from "~/hooks/useInput";
 
 const NewsletterForm = () => {
@@ -6,7 +7,9 @@ const NewsletterForm = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Đang giả lập
-        console.log(`${value} đã đăng ký nhận bảng tin thành công`);
+        // console.log(`${value} đã đăng ký nhận bảng tin thành công`);
+        toast.warning("Tính năng này đang được phát triển");
+        toast.info("Tính năng này đang được phát triển");
         reset();
     };
     return (

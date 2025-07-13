@@ -3,7 +3,7 @@ import { SYSTEM_PROMPT } from "./constants/systemPrompt";
 
 // Tạo nhanh token: https://aistudio.google.com/apikey
 const token = getEnv("API_GEMINI");
-const model = getEnv("MODEL_AI", "gemini-2.5-pro"); // Các model: https://ai.google.dev/gemini-api/docs/models?hl=vi
+const model = getEnv("MODEL_AI", "gemini-2.0-flash"); // Các model: https://ai.google.dev/gemini-api/docs/models?hl=vi
 export const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${token}`;
 
 // Training kiến thức cho AI

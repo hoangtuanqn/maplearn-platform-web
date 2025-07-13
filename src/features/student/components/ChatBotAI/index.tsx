@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { ChevronDown, MessageSquare, MessageSquareOff, SendHorizontal } from "lucide-react";
+import { ArrowUp, ChevronDown, MessageSquare, MessageSquareOff, SendHorizontal } from "lucide-react";
 
 import { useInput } from "~/hooks/useInput";
 import axios from "axios";
@@ -8,22 +8,17 @@ import { ChatHistoriesType } from "./types/ChatBotType.type";
 import ChatBubble from "./components/ChatBubble";
 import { API_URL, helloMessageModel, trainingAI } from "./config";
 import ChatLoading from "./components/ChatLoading";
+import { getEnv } from "~/utils/env";
+import { APP } from "~/config/env";
 
 const ChatBotAI = () => {
     // const [isClose, setIsClose] = useState(false);
     const { auth } = useAuth();
-
     const frameChat = useRef<HTMLDivElement>(null);
     const [isPending, setIsPending] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const { value: message, onChange, setValue: setMessage } = useInput("");
     const [chatHistories, setChatHistories] = useState<ChatHistoriesType[]>([]);
-    const scrollToBottom = () => {
-        frameChat.current?.scrollTo({
-            top: frameChat.current.scrollHeight,
-            behavior: "smooth",
-        });
-    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -34,10 +29,18 @@ const ChatBotAI = () => {
         setChatHistories(newHistories);
         let modelReply = "Hiện tại máy chủ đang quá tải nên chưa thể hỗ trợ bạn được!";
         try {
-            const data = await axios.post(API_URL, {
-                ...trainingAI,
-                contents: newHistories,
-            });
+            const data = await axios.post(
+                getEnv("SEND_CHAT_BOT_AI", "BE") === "BE" ? APP.API_URL + "/chat-bot-ai" : API_URL,
+                {
+                    ...trainingAI,
+                    contents: newHistories,
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                },
+            );
             modelReply =
                 data.data?.candidates[0].content.parts[0].text || "Bạn hỏi 1 câu mà tôi không biết trả lời sao luôn á!";
         } catch (error) {
@@ -55,7 +58,12 @@ const ChatBotAI = () => {
     }, [setChatHistories, auth.user]);
 
     // Kéo xuống cuối cùng mỗi khi có đoạn chat mới
-    useEffect(scrollToBottom, [chatHistories]);
+    useEffect(() => {
+        frameChat.current?.scrollTo({
+            top: frameChat.current.scrollHeight,
+            behavior: "smooth",
+        });
+    }, [chatHistories]);
 
     return (
         <>
@@ -97,7 +105,7 @@ const ChatBotAI = () => {
                         </div>
                     </div>
                     <div
-                        className="flex min-h-[445px] flex-col gap-3 overflow-y-auto px-8 pt-6 pb-10"
+                        className="flex h-[calc(100%-120px)] flex-col gap-3 overflow-y-auto px-8 pt-6 pb-10 xl:h-[445px]"
                         ref={frameChat}
                         style={{ scrollbarWidth: "thin", scrollbarColor: "#a5a5a5 transparent" }}
                     >
@@ -112,21 +120,35 @@ const ChatBotAI = () => {
                         {isPending && <ChatLoading />}
                     </div>
                     <form
-                        className="absolute right-0 bottom-0 left-0 min-h-[75px] rounded-b-xl bg-white px-8"
+                        className="absolute right-0 bottom-0 left-0 flex min-h-[75px] rounded-b-xl bg-white px-8"
                         onSubmit={handleSubmit}
                     >
-                        <div className="h-[0.5px] w-full bg-gray-300"></div>
-                        <input
-                            onChange={onChange}
-                            value={message}
-                            type="text"
-                            placeholder="Tin nhắn của bạn ...."
-                            className="h-15 w-full border-none px-0.5 outline-none"
-                        />
+                        <div className="flex-1">
+                            <div className="h-[0.5px] w-full bg-gray-300"></div>
+                            <div className="flex">
+                                <input
+                                    onChange={onChange}
+                                    value={message}
+                                    type="text"
+                                    placeholder="Tin nhắn của bạn ...."
+                                    className="h-15 w-full border-none px-0.5 pr-5 outline-none"
+                                />
+                                {/* Screen < XL */}
+                                {message && (
+                                    <button
+                                        type="submit"
+                                        className="t1-flex-center mt-2 size-12 cursor-pointer rounded-full bg-blue-500 p-2 text-white shadow-2xl shadow-blue-800 xl:hidden"
+                                    >
+                                        <ArrowUp className="!h-5 !w-5" />
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                        {/* Screen >= XL */}
                         {message && (
                             <button
                                 type="submit"
-                                className="t1-flex-center absolute -right-[5%] bottom-[20%] aspect-square w-12.5 cursor-pointer rounded-full bg-blue-500 text-white shadow-2xl shadow-blue-800"
+                                className="t1-flex-center absolute -right-[5%] bottom-[20%] hidden aspect-square w-12.5 cursor-pointer rounded-full bg-blue-500 text-white shadow-2xl shadow-blue-800 xl:flex"
                             >
                                 <SendHorizontal className="!h-6 !w-6" />
                             </button>

@@ -13,7 +13,7 @@ const ChatBubble = ({ role, text, name }: { role: "user" | "model"; name?: strin
         <div className={`${isUser ? `ml-auto` : `mr-auto`} max-w-[90%]`}>
             <div className={`w-fit rounded-lg px-4 py-2 break-words ${bubbleClass}`}>
                 {isUser ? (
-                    <span>{text}</span>
+                    <span className="break-words">{text}</span>
                 ) : (
                     <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
                         {text}

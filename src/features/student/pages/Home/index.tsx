@@ -1,4 +1,4 @@
-import CourseActive from "../../components/SidebarRight/CourseActive";
+// import CourseActive from "../../components/SidebarRight/CourseActive";
 import ExamCountdown from "../../components/SidebarRight/ExamCountdown";
 import SidebarLeft from "../../components/SidebarLeft";
 import SidebarRight from "../../components/SidebarRight";
@@ -20,7 +20,7 @@ const Home = () => {
                     <div className="max-md:bg-white max-md:p-4">
                         {/* Banner */}
                         <Banner />
-                        <CourseActive className="xl:hidden" />
+                        {/* <CourseActive className="xl:hidden" /> */}
                         <ExamCountdown className="max-2xl:mt-4 2xl:hidden" />
                     </div>
 
