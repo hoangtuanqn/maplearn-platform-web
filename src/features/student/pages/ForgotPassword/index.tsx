@@ -18,6 +18,7 @@ const ForgotPassword = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<ForgotPasswordType>({
         mode: "onBlur",
@@ -32,6 +33,7 @@ const ForgotPassword = () => {
                 res.data.message ||
                     "Hãy kiểm tra email của bạn. Nếu địa chỉ đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu ngay lập tức.",
             );
+            reset();
         },
 
         onError: (error) => {

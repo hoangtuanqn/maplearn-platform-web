@@ -1,49 +1,25 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import HeaderSection from "./HeaderSection";
-const teachers = [
-    {
-        name: "Thầy Vũ Ngọc Anh",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/64b229b5d0a652b97e5ab22d/thay-vu-ngoc-anh-1719903957239.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Nguyễn Anh Phong",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/ssje00d001mj/thay-phong-1719904088246.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Nguyễn Chí Nhân",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/64b22c56d0a652b97e5ab25a/thay-nguyen-chi-nhan-1719904691156.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Lam Trường",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/64b22ae2d0a652b97e5ab23f/thay-pham-ngoc-lam-truong-1719904662328.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Thành Nam",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/yfmex9703azb/nguyen-thanh-nam-1731156203997.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Nguyễn Phụ Hoàng Lân",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/ssjd7mc001j2/thay-lan-1719904579214.png",
-        href: "#",
-    },
-    {
-        name: "Thầy Đinh Hoàng Tùng",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/ssjep5c001pi/thay-tung-1719904541522.png",
-        href: "#",
-    },
-    {
-        name: "Cô Nguyễn Thị Thanh Thủy",
-        image: "https://mapstudy.sgp1.digitaloceanspaces.com/teacher/ssjc7vu001gz/co-thuy---gv-mon-ngu-van-1719904650486.png",
-        href: "#",
-    },
-];
+import apiPublic from "~/utils/apis/publicApi";
+import { TeacherType } from "./type/teacher.type";
+import { useQuery } from "@tanstack/react-query";
+import { SkeletonTeacherCard } from "./components/SkeletonTeacherCard";
+
+const fetchTeachers = async () => {
+    const res = await apiPublic.get<TeacherType[]>("http://localhost:8000/api/v1/user?filter[role]=teacher");
+    return res.data;
+};
+
 const Teachers = () => {
+    const {
+        data: teachers = [],
+        isLoading,
+        isError,
+    } = useQuery<TeacherType[]>({
+        queryKey: ["teachers"],
+        queryFn: fetchTeachers,
+    });
     return (
         <div className="mt-3.5 bg-white px-4 py-6 shadow-sm md:rounded-xl xl:mt-6">
             <HeaderSection title="Giáo viên MapLearn" />
@@ -71,21 +47,33 @@ const Teachers = () => {
                         },
                     }}
                 >
-                    {teachers.map(({ name, image, href = "#" }) => (
-                        <SwiperSlide>
-                            <a
-                                href={href}
-                                key={name + image}
-                                className="relative block h-45 w-32 shrink-0 overflow-hidden rounded-xl"
-                            >
-                                <img src={image} alt={name} className="aspect-[11/16] h-full w-full object-cover" />
-                                <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.6)] from-0% via-[rgba(0,0,0,0.2)] via-30% to-transparent to-40%"></div>
-                                <span className="absolute bottom-3 w-full px-2 text-center text-xs font-medium text-white">
-                                    {name}
-                                </span>
-                            </a>
-                        </SwiperSlide>
-                    ))}
+                    {isLoading ? (
+                        // Hiển thị 6 khung skeleton trong Swiper khi đang tải
+                        <>
+                            {[...Array(6)].map((_, index) => (
+                                <SwiperSlide key={index}>
+                                    <SkeletonTeacherCard />
+                                </SwiperSlide>
+                            ))}
+                        </>
+                    ) : (
+                        // Khi đã có dữ liệu
+                        teachers.map(({ full_name, avatar, gender }) => (
+                            <SwiperSlide key={full_name + avatar}>
+                                <a href="#" className="relative block h-45 w-32 shrink-0 overflow-hidden rounded-xl">
+                                    <img
+                                        src={avatar}
+                                        alt={full_name}
+                                        className="aspect-[11/16] h-full w-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-[rgba(0,0,0,0.6)] from-0% via-[rgba(0,0,0,0.2)] via-30% to-transparent to-40%"></div>
+                                    <span className="absolute bottom-3 w-full px-2 text-center text-xs font-medium text-white">
+                                        {`${gender === "male" ? "Thầy" : "Cô"} ${full_name}`}
+                                    </span>
+                                </a>
+                            </SwiperSlide>
+                        ))
+                    )}
                 </Swiper>
             </div>
         </div>

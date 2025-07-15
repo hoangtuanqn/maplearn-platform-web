@@ -27,6 +27,14 @@ export const publicRoutes = [
                 element: <Login />,
             },
             {
+                path: ROUTE_PATHS.forgotPassword,
+                element: <ForgotPassword />,
+            },
+            {
+                path: ROUTE_PATHS.resetPassword,
+                element: <ResetPassword />,
+            },
+            {
                 path: ROUTE_PATHS.authenticationSocial,
                 element: <AuthenticationSocial />,
             },
