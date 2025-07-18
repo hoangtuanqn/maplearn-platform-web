@@ -16,6 +16,10 @@ export const ROUTE_PATHS = {
         savedCourses: "/student/profile/saved-courses",
         savedQuestions: "/student/profile/saved-questions",
         receivedItems: "/student/profile/received-items",
+        documents: "/documents",
+        docsRepository: "/documents/docs-repository",
+        docsRepositoryDetails: "/documents/docs-repository-details",
+        docsDetails: "/documents/docs-details",
     },
     admin: {
         dashboard: "/admin",
