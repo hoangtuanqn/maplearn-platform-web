@@ -26,7 +26,7 @@ const BlurBackdrop = () => {
                         >
                             <div>
                                 <div
-                                    className="tab:h-[40rem] h-[20rem] w-full overflow-hidden"
+                                    className="h-[20rem] w-full overflow-hidden"
                                     tabIndex={-1}
                                     style={{
                                         width: "100%",
@@ -34,7 +34,7 @@ const BlurBackdrop = () => {
                                     }}
                                 >
                                     <img
-                                        className="tab:blur-[40px] h-auto w-full scale-x-105 scale-y-110 object-cover blur-[20px]"
+                                        className="h-auto w-full scale-x-105 scale-y-110 object-cover blur-[20px]"
                                         alt=""
                                         src="https://mapstudy.sgp1.digitaloceanspaces.com/ui/slider/2k8-xps-1747810214128.jpg"
                                     />
@@ -57,7 +57,7 @@ const BlurBackdrop = () => {
                         >
                             <div>
                                 <div
-                                    className="tab:h-[40rem] h-[20rem] w-full overflow-hidden"
+                                    className="h-[20rem] w-full overflow-hidden"
                                     tabIndex={-1}
                                     style={{
                                         width: "100%",
@@ -65,7 +65,7 @@ const BlurBackdrop = () => {
                                     }}
                                 >
                                     <img
-                                        className="tab:blur-[40px] h-auto w-full scale-x-105 scale-y-110 object-cover blur-[20px]"
+                                        className="h-auto w-full scale-x-105 scale-y-110 object-cover blur-[20px]"
                                         alt=""
                                         src="https://mapstudy.sgp1.digitaloceanspaces.com/ui/slider/map-book-1736140098369.jpg"
                                     />

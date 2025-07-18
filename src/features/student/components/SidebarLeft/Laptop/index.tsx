@@ -41,12 +41,12 @@ const SideBarLaptop = () => {
                         />
                         <MenuItemLink
                             title="Khóa học của tôi"
-                            url="/ca-nhan/khoa-hoc"
+                            url={ROUTE_PATHS.user.myCourses}
                             image="/assets/icons/my-courses.svg"
                         />
                         <MenuItemLink
                             title="Khoá học đã lưu"
-                            url="/ca-nhan/khoa-hoc-da-luu"
+                            url={ROUTE_PATHS.user.savedCourses}
                             image="/assets/icons/saved-courses.svg"
                         />
                     </>
@@ -64,7 +64,7 @@ const SideBarLaptop = () => {
                     image="/assets/icons/theory-arena.svg"
                 />
                 <MenuItemLink title="Sách Map" url="https://www.sachmap.vn/" image="/assets/icons/book-map.svg" />
-                <MenuItemLink title="Tài liệu" url="/tai-lieu" image="/assets/icons/document.svg" />
+                <MenuItemLink title="Tài liệu" url={ROUTE_PATHS.documents} image="/assets/icons/document.svg" />
                 <div className="my-4 ml-4 h-[1px] w-[calc(100%-1.5rem)] bg-[rgba(0,0,0,0.1)]"></div>
                 <div className="py-2 pl-2">
                     <p className="text-primary text-base font-medium">Liên kết</p>

@@ -7,6 +7,10 @@ export const ROUTE_PATHS = {
     authenticationSocial: "/authentication-social",
     posts: "/posts",
     examOnline: "/exam-online",
+    documents: "/documents",
+    docsRepository: "/docs-repository",
+    docsRepositoryDetails: "/docs-repository-details",
+    docsDetails: "/docs-details",
 
     user: {
         profile: "/student/profile",
@@ -16,10 +20,6 @@ export const ROUTE_PATHS = {
         savedCourses: "/student/profile/saved-courses",
         savedQuestions: "/student/profile/saved-questions",
         receivedItems: "/student/profile/received-items",
-        documents: "/documents",
-        docsRepository: "/documents/docs-repository",
-        docsRepositoryDetails: "/documents/docs-repository-details",
-        docsDetails: "/documents/docs-details",
     },
     admin: {
         dashboard: "/admin",

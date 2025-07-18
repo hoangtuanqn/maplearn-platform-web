@@ -58,7 +58,7 @@ const HeaderLaptop = () => {
                     <div className="max-w-8xl mx-auto w-full items-center px-4 pl-6.5">
                         <div className="flex w-full items-center justify-between">
                             <div className="flex items-center max-xl:hidden">
-                                <div className="tab:pr-4">
+                                <div className="">
                                     <Link className="cursor-pointer" to={ROUTE_PATHS.home}>
                                         <span className="sr-only">MapLearn</span>
                                         <img

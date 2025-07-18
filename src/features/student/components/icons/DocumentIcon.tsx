@@ -1,3 +1,5 @@
+import React from "react";
+
 const DocumentIcon = ({ color = "#868686", isActive = false }) => {
     return (
         <svg

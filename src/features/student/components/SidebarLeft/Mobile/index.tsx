@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ROUTE_PATHS } from "~/router/routePaths";
 
 const SideBarMobile = () => {
     return (
@@ -46,7 +47,7 @@ const SideBarMobile = () => {
                 </Link>
                 <Link
                     className="flex cursor-pointer items-center rounded-lg px-4 py-2.5 hover:bg-[rgba(26,79,140,0.06)]"
-                    to="/tai-lieu"
+                    to={ROUTE_PATHS.documents}
                 >
                     <div className="t1-flex-center size-8">
                         <img src="/assets/icons/document.svg" alt="" />

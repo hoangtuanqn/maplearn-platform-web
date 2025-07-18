@@ -8,6 +8,10 @@ import Posts from "~/features/student/pages/Posts";
 import ExamOnline from "~/features/student/pages/Onlineexam";
 import ForgotPassword from "~/features/student/pages/ForgotPassword";
 import ResetPassword from "~/features/student/pages/ResetPassword";
+import Documents from "~/features/student/pages/Documents";
+import DocsRepository from "~/features/student/pages/DocsRepository";
+import DocsRepositoryDetails from "~/features/student/pages/DocsRepoDetails";
+import DocsDetails from "~/features/student/pages/DocsDetails";
 
 // const Home = lazy(() => import("~/features/student/pages/Home"));
 const NotFound = lazy(() => import("~/features/student/pages/NotFound"));
@@ -53,6 +57,22 @@ export const publicRoutes = [
             {
                 path: ROUTE_PATHS.examOnline,
                 element: <ExamOnline />,
+            },
+            {
+                path: ROUTE_PATHS.documents,
+                element: <Documents />,
+            },
+            {
+                path: ROUTE_PATHS.docsRepository,
+                element: <DocsRepository />,
+            },
+            {
+                path: ROUTE_PATHS.docsRepositoryDetails,
+                element: <DocsRepositoryDetails />,
+            },
+            {
+                path: ROUTE_PATHS.docsDetails,
+                element: <DocsDetails />,
             },
         ],
     },
