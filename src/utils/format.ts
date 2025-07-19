@@ -1,7 +1,7 @@
-export const formatDate = (date: Date) => date.toLocaleDateString("vi-VN");
-
-export const formatCurrency = (amount: number) =>
-    amount.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+export const formatter = {
+    date: (date: Date) => date.toLocaleDateString("vi-VN"),
+    number: (amount: number) => amount.toLocaleString("vi-VN"),
+};
 
 export const formatPhoneNumber = (phone: string | number): string => {
     // Chuyển thành chuỗi và loại bỏ các ký tự không phải số

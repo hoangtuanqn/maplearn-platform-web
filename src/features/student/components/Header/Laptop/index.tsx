@@ -91,7 +91,7 @@ const HeaderLaptop = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-center justify-end gap-6">
+                            <div className="flex items-center justify-end gap-2">
                                 {auth.user ? (
                                     <div className="flex items-center gap-2">
                                         <div className="t1-flex-center h-9.5 w-9.5 cursor-pointer rounded-full border-2 border-[#b4d1e9] p-px">
@@ -171,13 +171,13 @@ const HeaderLaptop = () => {
                                 ) : (
                                     <>
                                         <Link
-                                            className="text-secondary-typo whitespace-nowrap hover:text-gray-900"
+                                            className="bg-primary hover:bg-primary-light rounded-xl px-5 py-1.5 whitespace-nowrap text-white shadow-sm duration-150 ease-out"
                                             to={ROUTE_PATHS.register}
                                         >
                                             <span>Đăng ký</span>
                                         </Link>
                                         <Link
-                                            className="bg-primary hover:bg-primary-light t1-flex-center rounded-xl border-2 border-transparent px-5 py-1.5 whitespace-nowrap text-white shadow-sm duration-150 ease-out"
+                                            className="text-primary border-primary rounded-xl border-1 px-5 py-1.5 whitespace-nowrap hover:text-gray-900"
                                             to={ROUTE_PATHS.login}
                                         >
                                             Đăng nhập

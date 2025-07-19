@@ -74,7 +74,7 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
     return (
         <>
             {loginMutation.isPending && <Loading />}
-            <div>
+            <div className="w-full">
                 <h3 className="text-center text-xl font-semibold uppercase">Đăng nhập</h3>
                 <form className="flex-center my-6 flex w-full flex-col" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-10 flex w-full flex-col gap-6">
@@ -122,7 +122,7 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
 
                 <div className="flex flex-col gap-2">
                     <div className="t1-flex-center gap-2 text-gray-500">
-                        <span className="block h-[1.5px] w-20 bg-black/40"></span> <span>hoặc</span>
+                        <span className="block h-[1.5px] w-20 bg-black/40"></span> <span>hoặc tiếp tục với</span>
                         <span className="block h-[1.5px] w-20 bg-black/40"></span>
                     </div>
                     <div className="mt-4 flex flex-col justify-center gap-2 text-[12px] sm:flex-row sm:text-sm">
@@ -132,7 +132,7 @@ const FormLogin = ({ setVerify2fa }: { setVerify2fa: Dispatch<SetStateAction<Ver
                 </div>
                 <div className="mt-10 text-center text-sm">
                     <span>Chưa có tài khoản? </span>
-                    <Link className="hover:text-gray-900" to={ROUTE_PATHS.register}>
+                    <Link className="hover:text-gray-900 underline" to={ROUTE_PATHS.register}>
                         Đăng ký
                     </Link>
                 </div>

@@ -5,11 +5,11 @@ import FilterButtonList from "./components/FilterButtonList";
 import SubjectTabList from "./components/SubjectTabList";
 import DocumentRepositoryCard from "./components/DocumentRepositoryCard";
 import DocumentSearchBar from "./components/DocumentSearchBar";
-import LibraryIcon from "../../components/icons/LibraryIcon";
+
 
 const Documents = () => {
     const [page, setPage] = useState(1);
-    const limit = 4;
+    const limit = 20;
     const [selectedSubjectIndex, setSelectedSubjectIndex] = useState(0);
     const {
         data: documents,
@@ -24,19 +24,11 @@ const Documents = () => {
     };
 
     return (
-        <div className="px-4 md:px-8 lg:px-0">
-            <div className="mt-2.5 mb-4 hidden h-10 flex-nowrap items-center gap-3 text-slate-500">
-                <a className="t1-flex-center cursor-pointer rounded-full duration-150 hover:bg-[#e9e9e9]" href="/">
-                    <LibraryIcon />
-                </a>
-                <div className="text-lg">&gt;</div>
-                <span className="cursor-default truncate font-medium" style={{ color: "var(--primary)" }}>
-                    Tài liệu
-                </span>
-            </div>
-            <div className="mt-6 flex flex-col-reverse gap-6 px-4 lg:grid lg:grid-cols-3">
+        <div className="min-h-screen px-4 md:px-8 lg:px-0">
+            
+            <div className="mt-6 flex flex-col-reverse gap-15 px-4 lg:grid lg:grid-cols-3">
                 <div className="md:col-span-2">
-                    <p className="text-2xl font-medium text-[#0A4875]">Thư viện tài liệu</p>
+                    <p className="text-primary text-2xl font-semibold uppercase">Thư viện tài liệu</p>
                     <div className="mt-4">
                         <div>
                             <FilterButtonList filters={["ĐGTD", "DGNL", "Lớp 12", "Lớp 11", "Lớp 10", "Lớp 9"]} />

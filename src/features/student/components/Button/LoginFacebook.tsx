@@ -4,10 +4,11 @@ const LoginFacebook = () => {
     return (
         <button
             onClick={() => (window.location.href = `${APP.API_ROOT}/api/v1/auth/facebook`)}
-            className="flex cursor-pointer items-center gap-4 rounded-xl bg-[#4285F4] px-4 py-2 pr-8 text-white shadow"
+            className="flex cursor-pointer items-center gap-4 rounded-xl bg-[#4285F4] px-4 py-2 text-white shadow"
         >
-            <img src="/assets/icons/facebook.png" alt="Facebook" className="rounded-xlobject-cover h-7.5 w-7.5" />
-            <span className="flex-1 text-center font-bold">Tiếp tục với Facebook</span>
+            <div className="t1-flex-center h-7 w-7 rounded-xl">
+                <img src="/assets/icons/facebook.png" alt="Google" className="w-[80%] object-cover" />
+            </div>
         </button>
     );
 };

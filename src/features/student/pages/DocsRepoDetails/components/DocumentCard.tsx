@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import EyeIcon from "../../../components/icons/EyeIcon";
-import ClockIcon from "../../../components/icons/ClockIcon";
-import TagBadge from "./TagBadge";
 
-type TagType = { id: number; name: string; created_at: string };
-export type DocumentCardProps = {
+import TagBadge from "../../../components/TagBadge";
+import { TagType } from "~/features/student/types/document.type";
+import { formatter } from "~/utils/format";
+import { Clock4, Eye } from "lucide-react";
+type DocumentCardProps = {
     title: string;
     tags: TagType[];
     views: number;
@@ -21,22 +21,27 @@ const DocumentCard = ({ title, tags, views, created_at, link, image }: DocumentC
             </div>
             <div className="flex flex-1 flex-col justify-between">
                 <div className="flex flex-col gap-1">
-                    <p className="line-clamp-1 font-medium text-[#373737]">{title}</p>
-                    <div className="flex w-full items-center gap-3 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-                        {tags.map((tag: TagType) => (
-                            <TagBadge key={tag.id} name={tag.name} />
+                    <p className="line-clamp-2 font-medium text-[#373737]">{title}</p>
+                    <div
+                        className="mt-1 mb-4 flex w-full flex-wrap items-center gap-x-1 gap-y-2 overflow-x-auto"
+                        style={{ scrollbarWidth: "none" }}
+                    >
+                        {tags.map(({ id, name }) => (
+                            <>
+                                <TagBadge key={id + name}>{name}</TagBadge>
+                            </>
                         ))}
                     </div>
                 </div>
                 <div className="border-t-[1px] border-t-[#E3E3E3] pt-2.5">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1">
-                            <EyeIcon className="size-4.5" />
-                            <p className="text-[#656C7B]">{views}</p>
+                            <Eye />
+                            <p className="text-[#656C7B]">{formatter.number(views)}</p>
                         </div>
                         <div className="flex items-center gap-1">
-                            <ClockIcon className="size-4.5" />
-                            <p className="text-[#656C7B]">{created_at}</p>
+                            <Clock4 />
+                            <p className="text-[#656C7B]">{formatter.date(new Date(created_at))}</p>
                         </div>
                     </div>
                 </div>

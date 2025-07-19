@@ -1,6 +1,6 @@
 import DocumentCard from "./DocumentCard";
 import { DocumentType, DocumentListResponse } from "../documentsApi";
-import ArrowRightIcon from "../../../components/icons/ArrowRightIcon";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type DocumentsListProps = {
     documents?: DocumentListResponse;
@@ -38,7 +38,7 @@ const DocumentsList = ({ documents, isLoading, isError, error, page, setPage }: 
                             disabled={page === 1}
                             aria-label="Trang trước"
                         >
-                            <ArrowRightIcon className="size-5 rotate-180" />
+                            <ChevronLeft />
                         </button>
                         {documents &&
                             documents.last_page &&
@@ -58,7 +58,7 @@ const DocumentsList = ({ documents, isLoading, isError, error, page, setPage }: 
                             disabled={documents && page === documents.last_page}
                             aria-label="Trang sau"
                         >
-                            <ArrowRightIcon className="size-5" />
+                            <ChevronRight />
                         </button>
                     </div>
                 </nav>

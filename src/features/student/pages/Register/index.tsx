@@ -74,7 +74,7 @@ const Register = () => {
                         </p>
                         <img src="/assets/images/common/study.png" alt="" className="w-full object-cover" />
                     </section>
-                    <section className="flex-1 xl:border-l-2 xl:border-[#e5e7eb] xl:pl-32">
+                    <section className="w-full flex-1 xl:border-l-2 xl:border-[#e5e7eb] xl:pl-32">
                         <h3 className="text-center text-xl font-semibold uppercase">Tạo tài khoản</h3>
                         <form
                             className="t1-flex-center mt-6 mb-10 flex w-full flex-col"
@@ -152,7 +152,8 @@ const Register = () => {
                         </form>
                         <div className="flex flex-col gap-2">
                             <div className="t1-flex-center gap-2 text-gray-500">
-                                <span className="block h-[1.5px] w-20 bg-black/40"></span> <span>hoặc</span>
+                                <span className="block h-[1.5px] w-20 bg-black/40"></span>{" "}
+                                <span>hoặc tiếp tục với</span>
                                 <span className="block h-[1.5px] w-20 bg-black/40"></span>
                             </div>
                             <div className="mt-4 flex flex-col justify-center gap-2 text-[12px] sm:flex-row sm:text-sm">
@@ -162,7 +163,7 @@ const Register = () => {
                         </div>
                         <div className="mt-10 text-center text-sm">
                             <span>Bạn đã có tài khoản? </span>
-                            <Link className="hover:text-gray-900" to={ROUTE_PATHS.login}>
+                            <Link className="underline hover:text-gray-900" to={ROUTE_PATHS.login}>
                                 Đăng nhập
                             </Link>
                         </div>

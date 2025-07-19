@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ROUTE_PATHS } from "~/router/routePaths";
 import DocsRepositoryCard from "./components/DocsRepositoryCard";
-import SearchIcon from "../../components/icons/SearchIcon";
 import { Link } from "react-router-dom";
 import HomeIcon from "../../components/icons/HomeIcon";
+import DocumentSearchBar from "../Documents/components/DocumentSearchBar";
 
 const DocsRepository = () => {
     const [selectedSubject, setSelectedSubject] = useState("Tất cả");
@@ -53,7 +53,7 @@ const DocsRepository = () => {
     ];
 
     return (
-        <div className="max-w-8xl mx-auto px-4">
+        <div className="max-w-8xl mx-auto min-h-screen px-4">
             <div className="mt-2.5 mb-4 hidden h-10 flex-nowrap items-center gap-3 text-slate-500">
                 <Link
                     className="flex cursor-pointer items-center justify-center rounded-full transition duration-150 hover:bg-gray-200"
@@ -70,15 +70,7 @@ const DocsRepository = () => {
             </div>
             <p className="text-primary text-xl font-bold">Tổng hợp kho tài liệu</p>
             <div className="mt-6 flex w-full items-center justify-between">
-                <label className="flex h-12 items-center rounded-xl bg-[#F0F3F7] px-4 lg:w-60 xl:w-80">
-                    <input
-                        className="h-full w-full bg-transparent pl-3 text-base font-medium text-[#444444] outline-none placeholder:text-[#AFC0CD]"
-                        placeholder="Tìm kiếm"
-                    />
-                    <button type="button" className="ml-2">
-                        <SearchIcon />
-                    </button>
-                </label>
+                <DocumentSearchBar />
                 <div className="ml-auto flex min-w-0 items-center gap-4">
                     <select
                         className="h-12 w-full rounded-xl bg-[#F0F3F7] px-4 text-base font-medium text-[#444444] focus:outline-none sm:w-40 md:w-52"

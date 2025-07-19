@@ -10,7 +10,7 @@ const SubjectTabList = ({ subjects, selectedIndex, onTabClick }: SubjectTabListP
             {subjects.map((subject, idx) => (
                 <button
                     key={subject}
-                    className={`relative min-w-[4.7rem] border-b-[1px] py-3 ${selectedIndex === idx ? "" : ""}`}
+                    className={`relative cursor-pointer border-b-[1px] border-gray-300 px-5 py-3 ${selectedIndex === idx ? "" : ""}`}
                     onClick={() => onTabClick?.(idx)}
                 >
                     {selectedIndex === idx ? (
