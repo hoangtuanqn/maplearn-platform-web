@@ -3,9 +3,11 @@ import { ROUTE_PATHS } from "~/router/routePaths";
 import DocsRepositoryCard from "./components/DocsRepositoryCard";
 import { Link } from "react-router-dom";
 import HomeIcon from "../../components/icons/HomeIcon";
-import DocumentSearchBar from "../Documents/components/DocumentSearchBar";
+import SearchBar from "~/features/student/components/SearchBar";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 
 const DocsRepository = () => {
+    useDocumentTitle("Kho tài liệu");
     const [selectedSubject, setSelectedSubject] = useState("Tất cả");
     const subjects = ["Tất cả", "Toán", "Lý", "Sinh", "Anh", "Hoá", "Văn"];
 
@@ -13,7 +15,6 @@ const DocsRepository = () => {
         {
             title: "Tuyển tập đề thi thử tốt nghiệp THPT Toán",
             views: 1540,
-            downloads: 0,
             grade: "Lớp 12",
             exams: [
                 {
@@ -33,7 +34,6 @@ const DocsRepository = () => {
         {
             title: "Tuyển tập đề thi thử tốt nghiệp THPT Toán",
             views: 1540,
-            downloads: 0,
             grade: "Lớp 12",
             exams: [
                 {
@@ -70,10 +70,10 @@ const DocsRepository = () => {
             </div>
             <p className="text-primary text-xl font-bold">Tổng hợp kho tài liệu</p>
             <div className="mt-6 flex w-full items-center justify-between">
-                <DocumentSearchBar />
+                <SearchBar />
                 <div className="ml-auto flex min-w-0 items-center gap-4">
                     <select
-                        className="h-12 w-full rounded-xl bg-[#F0F3F7] px-4 text-base font-medium text-[#444444] focus:outline-none sm:w-40 md:w-52"
+                        className="h-12 w-full rounded-xl bg-gray-100 px-4 text-base font-medium text-gray-500 focus:outline-none sm:w-40 md:w-52"
                         value={selectedSubject}
                         onChange={(e) => setSelectedSubject(e.target.value)}
                     >
@@ -92,7 +92,6 @@ const DocsRepository = () => {
                         key={idx}
                         title={repo.title}
                         views={repo.views}
-                        downloads={repo.downloads}
                         grade={repo.grade}
                         exams={repo.exams}
                     />

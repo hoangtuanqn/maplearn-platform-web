@@ -1,13 +1,11 @@
 import { ROUTE_PATHS } from "~/router/routePaths";
-
-import SearchIcon from "../../components/icons/SearchIcon";
 import DocumentCard from "./components/DocumentCard";
-import OtherRepoCard from "./components/OtherRepoCard";
 import TagBadge from "../../components/TagBadge";
 import { formatter } from "~/utils/format";
 import { Eye, Files } from "lucide-react";
 import DocumentCategoryCard from "../Documents/components/DocumentCategoryCard";
-import DocumentSearchBar from "../Documents/components/DocumentSearchBar";
+import SearchBar from "~/features/student/components/SearchBar";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 
 const mockDocuments = [
     {
@@ -67,6 +65,7 @@ const mockDocuments = [
 // ];
 
 const DocsRepoDetails = () => {
+    useDocumentTitle("Chi tiết kho tài liệu");
     return (
         <div className="min-h-screen px-4 lg:px-0">
             <div className="flex w-full flex-row gap-10">
@@ -80,12 +79,12 @@ const DocsRepoDetails = () => {
                                 </p>
                                 <div className="mt-1.5 flex items-center gap-4">
                                     <div className="5 flex items-center gap-1">
-                                        <Eye />
-                                        <p className="text-sm text-gray-400">{formatter.number(2000)}</p>
+                                        <Eye className="opacity-70"/>
+                                        <p className="text-sm text-gray-500">{formatter.number(2000)}</p>
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <Files className="size-4" />
-                                        <p className="text-sm text-gray-400">{formatter.number(30)}</p>
+                                        <Files className="size-4 opacity-70"/>
+                                        <p className="text-sm text-gray-500">{formatter.number(30)}</p>
                                     </div>
                                 </div>
                             </div>
@@ -96,12 +95,12 @@ const DocsRepoDetails = () => {
                             </div>
                         </div>
                         <div className="flex items-center justify-end">
-                            <DocumentSearchBar />
+                            <SearchBar />
                         </div>
                         <div className="mt-3.5 grid grid-cols-1 gap-3.5 xl:grid-cols-2">
                             {mockDocuments.map((doc) => (
                                 <DocumentCard
-                                    key={doc.id}
+                                    key={doc.id + doc.title}
                                     title={doc.title}
                                     tags={doc.tags}
                                     views={doc.views}

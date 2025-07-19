@@ -4,10 +4,12 @@ import DocumentsList from "./components/DocumentsList";
 import FilterButtonList from "./components/FilterButtonList";
 import SubjectTabList from "./components/SubjectTabList";
 import DocumentRepositoryCard from "./components/DocumentRepositoryCard";
-import DocumentSearchBar from "./components/DocumentSearchBar";
+import SearchBar from "~/features/student/components/SearchBar";
+import useDocumentTitle from "~/hooks/useDocumentTitle";
 
 
 const Documents = () => {
+    useDocumentTitle("Thư viện tài liệu");
     const [page, setPage] = useState(1);
     const limit = 20;
     const [selectedSubjectIndex, setSelectedSubjectIndex] = useState(0);
@@ -43,7 +45,7 @@ const Documents = () => {
                                         onTabClick={setSelectedSubjectIndex}
                                     />
                                 </div>
-                                <DocumentSearchBar />
+                                <SearchBar />
                             </div>
                         </div>
                     </div>

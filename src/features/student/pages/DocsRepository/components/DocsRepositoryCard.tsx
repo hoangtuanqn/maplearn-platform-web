@@ -12,27 +12,26 @@ interface Exam {
 interface DocsRepositoryCardProps {
     title: string;
     views: number;
-    downloads: number;
     grade: string;
     exams: Exam[];
 }
 
-const DocsRepositoryCard = ({ title, views, downloads, grade, exams }: DocsRepositoryCardProps) => {
+const DocsRepositoryCard = ({ title, views, grade, exams }: DocsRepositoryCardProps) => {
     return (
-        <div className="flex flex-col rounded-lg bg-[#EFF0F1]">
+        <div className="flex flex-col rounded-lg bg-gray-100">
             <Link className="cursor-pointer p-3.5" to={exams[0]?.link}>
                 <div className="flex items-center gap-4">
                     <img src="/assets/icons/file.svg" alt="Icon" className="h-16 w-16 object-contain" />
                     <div className="flex h-20 flex-1 flex-col justify-center">
-                        <p className="text-md line-clamp-2 font-medium text-[#373737]">{title}</p>
+                        <p className="text-md line-clamp-2 font-medium text-black opacity-80">{title}</p>
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1">
-                                <Eye />
-                                <p className="text-[#656C7B]">{formatter.number(views)}</p>
+                                <Eye className="opacity-60"/>
+                                <p className="text-gray-500">{formatter.number(views)}</p>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Files />
-                                <p className="text-[#656C7B]">{formatter.number(2000)}</p>
+                                <Files className="opacity-60"/>
+                                <p className="text-gray-500">{formatter.number(2000)}</p>
                             </div>
                         </div>
                     </div>
@@ -43,7 +42,7 @@ const DocsRepositoryCard = ({ title, views, downloads, grade, exams }: DocsRepos
                     </div>
                 </div>
             </Link>
-            <div className="my-1 h-[1px] w-full bg-[#DBDDE0]"></div>
+            <div className="my-1 h-[1px] w-full bg-gray-200"></div>
             <div className="flex-1 p-3.5">
                 <div className="flex flex-col gap-2.5">
                     {exams.map((exam, i) => (

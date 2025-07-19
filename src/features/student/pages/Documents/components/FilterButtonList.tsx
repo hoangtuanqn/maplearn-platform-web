@@ -11,7 +11,7 @@ const FilterButtonList = ({ filters, onFilterClick }: FilterButtonListProps) => 
             {filters.map((filter) => (
                 <button
                     key={filter}
-                    className="relative flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#F0F3F7] px-5 py-2 text-base font-medium text-[#656C7B]"
+                    className="relative flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-gray-100 px-5 py-2 text-base font-medium text-gray-500"
                     onClick={() => onFilterClick?.(filter)}
                 >
                     <GraduationIcon />

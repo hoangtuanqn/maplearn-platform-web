@@ -19,7 +19,7 @@ const SubjectTabList = ({ subjects, selectedIndex, onTabClick }: SubjectTabListP
                             style={{ opacity: 1 }}
                         ></div>
                     ) : null}
-                    <p className={`text-md font-medium ${selectedIndex === idx ? "text-primary" : "text-[#999999]"}`}>
+                    <p className={`text-md font-medium ${selectedIndex === idx ? "text-primary" : "text-gray-400"}`}>
                         {subject}
                     </p>
                 </button>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ROUTE_PATHS } from "~/router/routePaths";
-
 import DocumentCategoryCard from "./DocumentCategoryCard";
 
 const DocumentRepositoryCard = () => {
